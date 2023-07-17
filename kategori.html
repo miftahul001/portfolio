@@ -10,47 +10,57 @@
 <style>*{font-family:'Ubuntu';box-sizing:border-box;margin:0;padding:0;}</style>
 <script src="https://miftahul001.github.io/m/m.js"></script>
 <script>
-
-const kategori2 = a => {
-	const b = ['😀', '😁', '😂', '😃', '😄', '😅', '😆', '😇', '😈', '😉', '😊', '😋', '😌', '😍', '😎', '😏', '😐', '😑', '😒', '😓', '😔', '😕', '😖', '😗', '😘', '😙', '😚', '😛', '😜', '😝', '😞', '😟', '😠', '😡', '😢', '😣', '😤', '😥', '😦', '😧', '😨', '😩', '😪', '😫', '😬', '😭', '😮', '😯', '😰', '😱', '😲', '😳', '😴', '😵', '😶', '😷', '🙁', '🙂', '🙃', '🙄', '🤐', '🤑', '🤒', '🤓', '🤔', '🤕', '🤠', '🤡', '🤢', '🤣', '🤤', '🤥', '🤧', '🤨', '🤩', '🤪', '🤫', '🤬', '🤭', '🤮', '🤯', '🧐']
+const kategori1 = (a,b) => {
+	const c = [['◯', '◰', '◱', '◲', '◳', '◴', '◵', '◶', '◷', '◸', '◹', '◺', '◻'],
+			['😀', '😁', '😂', '😃', '😄', '😅', '😆', '😇', '😈', '😉', '😊', '😋', '😌', '😍', '😎', '😏', '😐', '😑', '😒', '😓', '😔', '😕', '😖', '😗', '😘', '😙', '😚', '😛', '😜', '😝', '😞', '😟', '😠', '😡', '😢', '😣', '😤', '😥', '😦', '😧', '😨', '😩', '😪', '😫', '😬', '😭', '😮', '😯', '😰', '😱', '😲', '😳', '😴', '😵', '😶', '😷', '🙁', '🙂', '🙃', '🙄', '🤐', '🤑', '🤒', '🤓', '🤔', '🤕', '🤠', '🤡', '🤢', '🤣', '🤤', '🤥', '🤧', '🤨', '🤩', '🤪', '🤫', '🤬', '🤭', '🤮', '🤯', '🧐']]
 	
-	b.forEach((b,c) => {
+	c[b].forEach((b,c) => {
 		el({a:'div', b:el({a:'div', b:el({a:'div', b:a, d:{style:'padding: 3px;'}}), c:b, d:{style:'padding: 5px; text-align:center;'}}).parentElement, c:`Nama  ${c+1}`, d:{style:'padding: 3px; text-align:center;'}})
 	})
 }
 
 addEventListener('load', ()=>{
 	
-const a = el({a:'div', b:document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:100vh; display:flex; flex-direction:column; gap:2px; background:rgba(0,0,0,.1);'}});
+const a = el({a:'div', b:document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:100vh; display:flex; flex-direction:column; gap:2px; background:rgba(0,0,0,.1);'}})
+
+const show1 =a=> {
+	a = a.target.parentElement;
+	[...a.parentElement.children].slice(0,-1).forEach(b=>{
+		if (a != b) {
+			b.children[0].children[1].textContent = '\u25AD';
+			b.children[1].style.display = 'none';
+			b.style.flex = '0 0 0';
+		}
+	})
+	a.children[0].children[1].textContent = '\u25CA';
+	a.children[1].style.display = 'grid';
+	a.style.flex = '1 0 0';
+}
 
 (a => {
-	const b=el({a:'div', b:a, d:{style:'display:flex; justify-content:space-between; padding:5px 3px;'}})
-	el({a:'div', b:b, c:'Kategori - 1'})
-	el({a:'div', b:b, c:'\u25AD'})
+	const b=el({a:'div', b:a, d:{style:'display:flex; justify-content:space-between; padding:5px 3px;'}, e:{click:show1}})
+	el({a:'div', b:b, c:'Kategori - 1', d:{style:'pointer-events:none;'}})
+	el({a:'div', b:b, c:'\u25AD', d:{style:'pointer-events:none;'}})
+	
+	const c = el({a:'div', b:a, d:{style:'flex:1 0 0; display:none; grid-template-columns:repeat(4, 1fr); gap:3px; align-items: start; padding:3px; overflow:scroll;'}})//grid-auto-rows: 10vmin; 
+	kategori1(c, 0)
 })(el({a:'div', b:a, d:{style:'background:white; cursor:default; display:flex; flex-direction:column;'}}));
 
 (a => {
-	const b=el({a:'div', b:a, d:{style:'display:flex; justify-content:space-between; padding:5px 3px;'}})
-	el({a:'div', b:b, c:'Kategori - 2'})
-	el({a:'div', b:b, c:'\u25CA'})
+	const b=el({a:'div', b:a, d:{style:'display:flex; justify-content:space-between; padding:5px 3px;'}, e:{click:show1}})
+	el({a:'div', b:b, c:'Kategori - 2', d:{style:'pointer-events:none;'}})
+	el({a:'div', b:b, c:'\u25CA', d:{style:'pointer-events:none;'}})
 	
 	const c=el({a:'div', b:a, d:{style:'flex:1 0 0; display:grid; grid-template-columns:repeat(4, 1fr); gap:3px; align-items: start; padding:3px; overflow:scroll;'}})//grid-auto-rows: 10vmin; 
-	kategori2(c)
-	/*
-	el({a:'div', b:c, c:'\u1F600', d:{style:'padding: 5px; text-align:center;'}})
-	el({a:'div', b:c, c:'\u1F601', d:{style:'padding: 5px; text-align:center;'}})
-	el({a:'div', b:c, c:'\u1F602', d:{style:'padding: 5px; text-align:center;'}})
-	el({a:'div', b:c, c:'\u1F603', d:{style:'padding: 5px; text-align:center;'}})
-	el({a:'div', b:c, c:'\u1F604', d:{style:'padding: 5px; text-align:center;'}})
-	el({a:'div', b:c, c:'\u1F605', d:{style:'padding: 5px; text-align:center;'}})
-	*/
+	kategori1(c, 1)
+	
 })(el({a:'div', b:a, d:{style:'background:white; cursor:default; flex:1 0 0; display:flex; flex-direction:column;'}}));
 	
 (a => {
 	el({a:'div', b:a, c:'\u25C5'})
 	el({a:'div', b:a, c:'\u25C9'})
 	el({a:'div', b:a, c:'\u25A3'})
-})(el({a:'div', b:a, d:{style:'background:white; cursor:default; display:flex; justify-content: space-around; padding: 5px 9px 30px 9px;'}}))
+})(el({a:'div', b:a, d:{style:'background:white; cursor:default; margin-bottom: auto; display:flex; justify-content: space-around; padding: 5px 9px;'}}))
 
 })
 </script>
