@@ -65,7 +65,7 @@ const dompet = {
 	init: a => {
 		document.body.appendChild(dompet.ct)
 		el({a:'div', b:dompet.ct, d:{style:'flex:1 0 0;'}})
-		const b = el({a:'div', b:dompet.ct, d:{style:'display:flex; gap:5px; padding:5px; justify-content:flex-end;'}})
+		const b = el({a:'div', b:dompet.ct, d:{style:'display:flex; gap:5px; padding:5px 7px 23px 7px; justify-content:flex-end;'}})
 		el({a:'button', b:b, c:'Pemasukan', d:{style:'padding:3px 5px;'}, e:{click:a=>{ dompet.masuk() }}})
 		el({a:'button', b:b, c:'Pengeluaran', d:{style:'padding:3px 5px;'}, e:{click:a=>{ dompet.keluar() }}})
 		el({a:'button', b:b, c:'Logout', d:{style:'padding:3px 5px;'}, e:{click:a=>{ dompet.login() }}})
