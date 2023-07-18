@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="dompet" content="dompet" />
+<title>dompet</title>
+<link rel="icon" type="image/x-icon" href="icon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Ubuntu&display=swap" rel="stylesheet">
+<style>*{font-family:'Ubuntu';box-sizing:border-box;margin:0;padding:0;}</style>
+<script src="https://miftahul001.github.io/m/m.js"></script>
+<script>
+
+const dompet = {
+	ct: el({a:'div', d:{style:'position:fixed; top:0; left:0; width:100vw; height:calc(100vh - 30px); display:flex; flex-direction:column; align-items:center; justify-content:center;'}}),
+	tabel1: a => {
+		dompet.ct.children[0].innerHTML = ''
+	},
+	login: a=> {
+		const b = el({a:'div', b:document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:calc(100vh - 30px); display:flex; flex-direction:column; align-items:center; justify-content:center; background:rgba(0,0,0,0);'}})
+		const c = el({a:'div', b:b, d:{style:'background:rgba(0,0,0,0.1); border-radius:5px; box-shadow:0 0 7px 3px rgba(0,0,0,.3); display:grid; grid-template-columns:auto auto; gap:3px; padding:11px;'}})
+		el({a:'div', b:c, c:'Username'})
+		el({a:'input', b:c, d:{type:'text'}})
+		el({a:'div', b:c, c:'Password'})
+		el({a:'input', b:c, d:{type:'text'}})
+		el({a:'div', b:c})
+		el({a:'div', b:c})
+		el({a:'div', b:c})
+		el({a:'button', b:c, c:'Login', d:{style:'padding:3px 5px; align-self:flex-end;'}, e:{click:a=>{ document.body.removeChild(document.body.children[document.body.children.length-1]) }}})
+	},
+	masuk: a => {
+		const b = el({a:'div', b:document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:calc(100vh - 30px); display:flex; flex-direction:column; align-items:center; justify-content:center; background:rgba(0,0,0,0);'}})
+		const c = el({a:'div', b:b, d:{style:'background:rgba(0,0,0,0.1); border-radius:5px; box-shadow:0 0 7px 3px rgba(0,0,0,.3); display:grid; grid-template-columns:auto auto; gap:3px; padding:11px;'}})
+		el({a:'div', b:c, c:'Nama Pengguna'})
+		el({a:'input', b:c, d:{type:'text'}})
+		el({a:'div', b:c, c:'Tanggal'})
+		el({a:'input', b:c, d:{type:'date'}})
+		el({a:'div', b:c, c:'Sumber'})
+		el({a:'input', b:c, d:{type:'text'}})
+		el({a:'div', b:c, c:'Jumlah'})
+		el({a:'input', b:c, d:{type:'number'}})
+		el({a:'div', b:c})
+		const d = el({a:'div', b:c, d:{style:'display:flex; gap:5px; justify-content:space-between;'}})
+		el({a:'button', b:d, c:'Save', d:{style:'padding:3px 5px;'}, e:{click:a=>{ document.body.removeChild(document.body.children[document.body.children.length-1]) }}})
+		el({a:'button', b:d, c:'Cancel', d:{style:'padding:3px 5px;'}, e:{click:a=>{ document.body.removeChild(document.body.children[document.body.children.length-1]) }}})
+	},
+	keluar: a => {
+		const b = el({a:'div', b:document.body, d:{style:'position:fixed; top:0; left:0; width:100vw; height:calc(100vh - 30px); display:flex; flex-direction:column; align-items:center; justify-content:center; background:rgba(0,0,0,0);'}})
+		const c = el({a:'div', b:b, d:{style:'background:rgba(0,0,0,0.1); border-radius:5px; box-shadow:0 0 7px 3px rgba(0,0,0,.3); display:grid; grid-template-columns:auto auto; gap:3px; padding:11px;'}})
+		el({a:'div', b:c, c:'Nama Pengguna'})
+		el({a:'input', b:c, d:{type:'text'}})
+		el({a:'div', b:c, c:'Tanggal'})
+		el({a:'input', b:c, d:{type:'date'}})
+		el({a:'div', b:c, c:'Kategori'})
+		el({a:'input', b:c, d:{type:'text'}})
+		el({a:'div', b:c, c:'Deskripsi'})
+		el({a:'input', b:c, d:{type:'text'}})
+		el({a:'div', b:c, c:'Jumlah'})
+		el({a:'input', b:c, d:{type:'number'}})
+		el({a:'div', b:c})
+		const d = el({a:'div', b:c, d:{style:'display:flex; gap:7px; justify-content:flex-end;'}})
+		el({a:'button', b:d, c:'Save', d:{style:'padding:3px 5px;'}, e:{click:a=>{ document.body.removeChild(document.body.children[document.body.children.length-1]) }}})
+		el({a:'button', b:d, c:'Cancel', d:{style:'padding:3px 5px;'}, e:{click:a=>{ document.body.removeChild(document.body.children[document.body.children.length-1]) }}})
+	},
+	init: a => {
+		document.body.appendChild(dompet.ct)
+		el({a:'div', b:dompet.ct, d:{style:'flex:1 0 0;'}})
+		const b = el({a:'div', b:dompet.ct, d:{style:'display:flex; gap:5px; padding:5px; justify-content:flex-end;'}})
+		el({a:'button', b:b, c:'Pemasukan', d:{style:'padding:3px 5px;'}, e:{click:a=>{ dompet.masuk() }}})
+		el({a:'button', b:b, c:'Pengeluaran', d:{style:'padding:3px 5px;'}, e:{click:a=>{ dompet.keluar() }}})
+		el({a:'button', b:b, c:'Logout', d:{style:'padding:3px 5px;'}, e:{click:a=>{ dompet.login() }}})
+		
+		dompet.login()
+	}
+}
+addEventListener('load', ()=>{ dompet.init() })
+</script>
+</head><body></body></html>
