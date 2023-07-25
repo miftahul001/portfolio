@@ -1238,19 +1238,7 @@ const m={
 		walk({a:[{a:[{a:m.lines[a].a}], l:0}], lat:[,,,].fill(99999), dst:m.lines[a].b});
 		return found
 	},
-	show: ()=>{
-		document.body.appendChild(m.div)
-		const a = el({a:'div', b:document.body, d:{style:'position:fixed; top:9px; left:9px; padding:11px; background:rgba(0,0,0,0.3); border-radius:7px;'}})
-		el({a:'button', b:a, c:'view data', e:{click:a=>{
-			console.log(m.dataJson.routes)
-			//console.log(m.lines)
-		}}})
-		el({a:'span', b:a, d:{style:'display:inline-block; padding:1px 7px;'}})
-		el({a:'button', b:a, c:'download data', e:{click:a=>{
-			el({a:'a', b:document.body, d:{download:'data.json', href:URL.createObjectURL(new Blob([JSON.stringify(m.dataJson)],{type:'application/json'}))}, e:{click:a=>{document.body.removeChild(a.target)}}}).click()
-			//console.log(m.dataJson.routes)
-		}}})
-	},
+	show: ()=>{ document.body.appendChild(m.div) },
 }
 return m
 }
