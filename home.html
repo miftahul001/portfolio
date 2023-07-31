@@ -1,0 +1,45 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="landing page" content="landing page" />
+<title>Landing Page</title>
+<link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+<style>*{font-family:'Ubuntu';box-sizing:border-box;margin:0;padding:0;}</style>
+<style>
+.bg1 {
+	background: linear-gradient(140deg, #AB0000, #790035, #570059, #00008B);
+	background-size: 200% 200%;
+	animation: gradient 5s ease infinite;
+}
+@keyframes gradient {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+</style>
+<script src="m.js"></script>
+<script>
+
+init = () => {
+	const a = el({a:'div', b:document.body, d:{class:'bg1', style:'position:fixed; top:0; left:0; width:100vw; min-height:100vh; display:flex; flex-direction:column;'}})
+	
+	const b = el({a:'div', b:a, d:{style:'height:50px; display:flex; gap:15px; align-items:flex-end; justify-content:flex-end; padding:1px 53px;'}})
+	
+	el({a:'div', b:b, c:'register', d:{style:'color:white; cursor:pointer;'}})
+	el({a:'div', b:b, c:'login', d:{style:'color:white; cursor:pointer;'}})
+	
+	el({a:'div', b:a, d:{style:'height:300px; margin:5px 33px; padding:33px; background:rgba(0,0,0,0.1); border-radius:11px; box-shadow:0 0 3px 1px rgba(255,255,0,0.1);'}})
+	
+	const c = el({a:'div', b:a, d:{style:'padding:11px 73px; display:flex; justify-content:space-around;'}})
+	
+	el({a:'div', b:c, c:'Content 1', d:{style:'padding:77px; background:rgba(0,0,0,0.1); border-radius:7px; box-shadow:0 0 3px 1px rgba(255,255,0,0.1); color:white;'}})
+	el({a:'div', b:c, c:'Content 2', d:{style:'padding:77px; background:rgba(0,0,0,0.1); border-radius:7px; box-shadow:0 0 3px 1px rgba(255,255,0,0.1); color:white;'}})
+	el({a:'div', b:c, c:'Content 3', d:{style:'padding:77px; background:rgba(0,0,0,0.1); border-radius:7px; box-shadow:0 0 3px 1px rgba(255,255,0,0.1); color:white;'}})
+}
+
+addEventListener('load', init)
+</script>
+</head><body></body></html>
