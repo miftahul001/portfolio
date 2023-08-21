@@ -1,0 +1,46 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Sheet" content="Sheet" />
+<title>Sheet</title>
+<link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+<style>*{font-family:'Ubuntu';box-sizing:border-box;margin:0;}</style>
+<style>
+</style>
+<script src="xlsx.full.min.js"></script>
+<script src="https://miftahul001.github.io/m/m.js"></script>
+<script>
+addEventListener('load', ()=>{
+	(a=>{a.parentElement.removeChild(a.previousElementSibling)})(el({a:'button', b:dlg({title:'Menu', top:3, left:3}), c:'buka file excel', e:{click:a=>{
+		el({a:'input', d:{type:'file', accept:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel'}, e:{change:a=>{
+			const b = new FileReader()
+			b.onload=()=>{
+				a = el({a:'div', b:dlg({title:a.target.files[0].name, top:57, left:33, width:(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth)-87, height:(window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight)-157}) })
+				el({a:'div', b:a, d:{style:'display:flex; gap:5px; padding:0 5px;'}})
+				el({a:'div', b:a})
+				const e = XLSX.read(b.result)
+				e.SheetNames.forEach(c=>{
+					const d = XLSX.utils.sheet_to_json(e.Sheets[c], {header:1})
+					if (d.length) {
+						el({a:'button', b:a.children[0], c:c, e:{click:a=>{
+							[...a.target.parentElement.nextElementSibling.children].forEach(a=>{a.style.display = 'none'})
+							a.target.parentElement.nextElementSibling.children[[...a.target.parentElement.children].indexOf(a.target)].style.display = 'grid'
+						}}})
+						const e = Math.max(...d.map(a=>a.length))
+						const f = el({a:'div', b:a.children[1], d:{style:`display:none; grid-template-columns:repeat(${e},auto); gap:2px; background:rgba(0,0,0,0.1); padding:2px; border-radius:5px;`}})
+						d.forEach(a=>{
+							a.concat(Array(e-a.length).fill('')).forEach(a=>{ el({a:'div', b:f, c:a, d:{style:'background:rgba(255,255,255,0.9); border-radius:5px;'}}) })
+						})
+					}
+				})
+				a.children[1].children[0].style.display = 'grid'
+			}
+			b.readAsArrayBuffer(a.target.files[0])
+		}}}).click()
+	}}}).parentElement)
+})
+</script>
+</head><body></body></html>
