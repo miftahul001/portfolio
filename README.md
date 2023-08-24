@@ -11,3 +11,5 @@ https://miftahul001.github.io/portfolio/tabel/tabel.html
 https://miftahul001.github.io/portfolio/tera/
 
 https://miftahul001.github.io/portfolio/sheet/
+
+https://miftahul001.github.io/portfolio/qosmo/
