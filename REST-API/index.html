@@ -4,13 +4,19 @@
 <meta name="rest api" content="rest api" />
 <title>REST API</title>
 <link href="favicon.svg" rel="icon" sizes="any" type="image/svg+xml">
-
+<style>
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 1vmin;
+}
+</style>
 <script src="https://miftahul001.github.io/m/m.js"></script>
 
 <script></script>
-</head><body>
-<div style="margin:0; padding:1vmin; border-radius:7px; box-shadow:0 0 5px 3px rgba(0,0,0,0.1); font-weight:bold; text-align:center;">Native PHP - REST API</div>
-<pre style="margin:3vmin; padding:1vmin; border-radius:7px; box-shadow:0 0 5px 3px rgba(0,0,0,0.1);">
+</head><body style="display:flex; flex-direction:column; gap:1vmin; width:100vw; height:100vh;">
+<div style="border-radius:7px; box-shadow:0 0 5px 3px rgba(0,0,0,0.1); font-weight:bold; text-align:center;">Native PHP - REST API</div>
+<pre style="border-radius:7px; box-shadow:0 0 5px 3px rgba(0,0,0,0.1); flex: 1 1 0; overflow:scroll;">
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
