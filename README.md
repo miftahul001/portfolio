@@ -1,5 +1,7 @@
 # portfolio
 
+https://miftahul001.github.io/project-fantasy/cv.html
+
 https://miftahul001.github.io/portfolio/home.html
 
 https://miftahul001.github.io/portfolio/kategori.html
