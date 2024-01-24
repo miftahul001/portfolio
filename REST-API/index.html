@@ -25,7 +25,7 @@
 1. mode GET
 
 fetch('?cmd=data-01').then(a=>a.json()).then(result => { console.log(result) }).catch(a => { console.log(a) })
-fetch('?cmd=data-01\&param1=bla').then(a=>a.json()).then(result => { console.log(result) }).catch(a => { console.log(a) })
+fetch('?cmd=data-01&prm1=bla').then(a=>a.json()).then(result => { console.log(result) }).catch(a => { console.log(a) })
 
 
 
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		break;
 		
 		case 'data-02' :
-			$q = "SELECT bla.." . $_GET['param1'];
+			$q = "SELECT bla.." . $_GET['prm1'];
 			
 			$q = $db->query($q);
 			
