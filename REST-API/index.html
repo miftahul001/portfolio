@@ -24,16 +24,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	if (!isset($_GET['cmd'])) {
 		echo json_encode(['status' =
 
-
-
 <?php
 
-/* USAGE
+/* USAGE (cara penggunaan)
+
 1. mode GET
-fetch('?cmd=data-01').then(a=>a.json()).then(result => { console.log(result) })
-fetch('?cmd=data-01&param1=bla').then(a=>a.json()).then(result => { console.log(result) })
+
+fetch('?cmd=data-01').then(a=>a.json()).then(result => { console.log(result) }).catch(a => { console.log(a) })
+fetch('?cmd=data-01&param1=bla').then(a=>a.json()).then(result => { console.log(result) }).catch(a => { console.log(a) })
+
+
+
+1. mode POST
+
+const a = new FormData()
+a.append('cmd', 'data-01')
+fetch('', { method:'POST', body:a }).then(a=>a.json()).then(result => { console.log(result) }).catch(a => { console.log(a) })
+
+
+const a = new FormData()
+a.append('cmd', 'data-01')
+a.append('param1', 'bla')
+fetch('', { method:'POST', body:a }).then(a=>a.json()).then(result => { console.log(result) }).catch(a => { console.log(a) })
 
 */
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
