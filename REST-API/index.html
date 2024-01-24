@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="rest api" content="rest api" />
+<title>REST API</title>
+<link href="favicon.svg" rel="icon" sizes="any" type="image/svg+xml">
+
+<script src="https://miftahul001.github.io/m/m.js"></script>
+
+<script></script>
+</head><body>
+<div>Native PHP - REST API</div>
+<pre>
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
+	if (!isset($_GET['cmd'])) {
+		echo json_encode(['status' => 400, 'msg' => 'cmd not set!']);
+		exit();
+	}
+	
+	$db = new mysqli("host", "user", "password", "db");
+	
+	if ($db -> connect_errno) {
+		echo json_encode(['status' => 500, 'msg' => $db -> connect_error]);
+		exit();
+	}
+	
+	switch ($_GET['cmd']) {
+		
+		case 'data-01' :
+			$q = "SELECT bla..";
+			
+			$q = $db->query($q);
+			
+			$a = [];
+			while ($b = $q->fetch_assoc()) { $a[] = $b; }
+			$q->free_result();
+			$db->close();
+			
+			echo json_encode(['status' => 200, 'data' => $a]);
+			
+		break;
+		
+		case 'data-02' :
+			$q = "SELECT bla.." . $_GET['param1'];
+			
+			$q = $db->query($q);
+			
+			$a = [];
+			while ($b = $q->fetch_assoc()) { $a[] = $b; }
+			$q->free_result();
+			$db->close();
+			
+			echo json_encode(['status' => 200, 'data' => $a]);
+			
+		break;
+		
+		default:
+			echo json_encode(['status' => 400, 'msg' => 'unknown cmd ' . $_GET['cmd']]);
+		break;
+	}
+	
+} else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	
+	if (!isset($_POST['cmd'])) {
+		echo json_encode(['status' => 400, 'msg' => 'cmd not set!']);
+		exit();
+	}
+	
+	$db = new mysqli("host", "user", "password", "db");
+	
+	if ($db -> connect_errno) {
+		echo json_encode(['status' => 500, 'msg' => $db -> connect_error]);
+		exit();
+	}
+	
+	switch ($_POST['cmd']) {
+		
+		case 'data-01' :
+			$q = "SELECT bla..";
+			
+			$q = $db->query($q);
+			
+			$a = [];
+			while ($b = $q->fetch_assoc()) { $a[] = $b; }
+			$q->free_result();
+			$db->close();
+			
+			echo json_encode(['status' => 200, 'data' => $a]);
+			
+		break;
+		
+		case 'data-02' :
+			$q = "SELECT bla.." . $_POST['param1'];
+			
+			$q = $db->query($q);
+			
+			$a = [];
+			while ($b = $q->fetch_assoc()) { $a[] = $b; }
+			$q->free_result();
+			$db->close();
+			
+			echo json_encode(['status' => 200, 'data' => $a]);
+			
+		break;
+		
+		default:
+			echo json_encode(['status' => 400, 'msg' => 'unknown cmd ' . $_POST['cmd']]);
+		break;
+	}
+	
+} else {
+	echo json_encode(['status' => 400, 'msg' => 'Bad Request']);
+}
+?>
+</pre>
+</body></html>
