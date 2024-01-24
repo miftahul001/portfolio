@@ -17,11 +17,23 @@
 </head><body style="display:flex; flex-direction:column; gap:3vmin; width:99vw; height:99vh;">
 <div style="border-radius:7px; box-shadow:0 0 5px 3px rgba(0,0,0,0.1); font-weight:bold; text-align:center;">Native PHP - REST API</div>
 <pre style="border-radius:7px; box-shadow:0 0 5px 3px rgba(0,0,0,0.1); flex: 1 1 0; overflow:scroll;">
+?php
 
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
+	if (!isset($_GET['cmd'])) {
+		echo json_encode(['status' =
 
 
 
 <?php
+
+/* USAGE
+1. mode GET
+fetch('?cmd=data-01').then(a=>a.json()).then(result => { console.log(result) })
+fetch('?cmd=data-01&param1=bla').then(a=>a.json()).then(result => { console.log(result) })
+
+*/
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
