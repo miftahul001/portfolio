@@ -25,7 +25,7 @@
 1. mode GET
 
 fetch('?cmd=data-01').then(a=>a.json()).then(result => { console.log(result) }).catch(a => { console.log(a) })
-fetch('?cmd=data-01&param1=bla').then(a=>a.json()).then(result => { console.log(result) }).catch(a => { console.log(a) })
+fetch('?cmd=data-01\&param1=bla').then(a=>a.json()).then(result => { console.log(result) }).catch(a => { console.log(a) })
 
 
 
