@@ -22,10 +22,10 @@ addEventListener('load', () => {
 	a.style.cssText = 'background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 7px; padding: 7px; display:flex; flex-direction:column; gap:5px;'
 	el({a:'button', b:a, c:'static 1', e:{click: a => { document.body.appendChild(m[0]) } }})
 	el({a:'button', b:a, c:'static 2', e:{click: a => { document.body.appendChild(m[1]) } }})
-	el({a:'button', b:a, c:'dynamic', e:{click: a => { dlg({title:`dynamic ${m[2]}`, top:50, left:470}); m[2]++ } }});
+	el({a:'button', b:a, c:'dynamic', e:{click: a => { dlg({title:`dynamic ${m[2]}`, top:50, left:270}); m[2]++ } }});
 	
-	(a => { document.body.removeChild(a); m.push(a) })(dlg({title:'static 1', top:30, left:430}).parentElement);
-	(a => { document.body.removeChild(a); m.push(a) })(dlg({title:'static 2', top:40, left:450}).parentElement)
+	(a => { document.body.removeChild(a); m.push(a) })(dlg({title:'static 1', top:30, left:230}).parentElement);
+	(a => { document.body.removeChild(a); m.push(a) })(dlg({title:'static 2', top:40, left:250}).parentElement)
 	m.push(1)
 })
 </script>
