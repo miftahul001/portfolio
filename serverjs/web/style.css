@@ -1,0 +1,24 @@
+body { background: #EFF5FF; }
+#info {
+	background: rgba(255,255,255,0.7);
+	border: 1px solid black;
+	border-radius: 7px;
+	padding: 3px 9px;
+	position: fixed;
+	top: 11px;
+	right: 15px;
+}
+p {
+	background: rgba(255,255,255,0.7);
+	border-radius: 5px;
+	margin: 1px;
+	padding: 7px;'
+}
+.grid1 {
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 7px;
+	display: grid;
+	grid-template-columns: min-content 1fr;
+	gap: 5px;
+	padding: 7px;
+}
