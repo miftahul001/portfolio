@@ -24,8 +24,8 @@ addEventListener('load', () => {
 	el({a:'button', b:a, c:'static 2', e:{click: a => { document.body.appendChild(m[1]) } }})
 	el({a:'button', b:a, c:'dynamic', e:{click: a => { dlg({title:`dynamic ${m[2]}`, top:50, left:470}); m[2]++ } }});
 	
-	(a => { document.body.removeChild(a); m.push(a) })(dlg({title:'static 1', top:50, left:470}).parentElement);
-	(a => { document.body.removeChild(a); m.push(a) })(dlg({title:'static 2', top:50, left:470}).parentElement)
+	(a => { document.body.removeChild(a); m.push(a) })(dlg({title:'static 1', top:30, left:430}).parentElement);
+	(a => { document.body.removeChild(a); m.push(a) })(dlg({title:'static 2', top:40, left:450}).parentElement)
 	m.push(1)
 })
 </script>
