@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="dialog or popup" content="dialog or popup" />
+<title>Dialog</title>
+<link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+<style>body{ background: #EFF5FF; } #info { background: rgba(255,255,255,0.7); border: 1px solid black; border-radius: 7px; padding: 3px 9px; position: fixed; top: 11px; right: 15px; }</style>
+<script src="https://miftahul001.github.io/m/m.js"></script>
+<script>
+
+const m = []
+
+addEventListener('load', () => {
+	
+	(a => {
+		el({a:'p', b:a, c:'click dialog -> bringtofront'})
+		el({a:'p', b:a, c:'click and drag title -> move dialog'})
+	})(el({a:'div', b:document.body, d:{id:'info'} }))
+	
+	const a = dlg({title:'menu', top:30, left:30})
+	a.parentElement.removeChild(a.previousElementSibling)
+	a.style.cssText = 'background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 7px; padding: 7px; display:flex; flex-direction:column; gap:5px;'
+	el({a:'button', b:a, c:'static 1', e:{click: a => { document.body.appendChild(m[0]) } }})
+	el({a:'button', b:a, c:'static 2', e:{click: a => { document.body.appendChild(m[1]) } }})
+	el({a:'button', b:a, c:'dynamic', e:{click: a => { dlg({title:`dynamic ${m[2]}`, top:50, left:470}); m[2]++ } }});
+	
+	(a => { document.body.removeChild(a); m.push(a) })(dlg({title:'static 1', top:50, left:470}).parentElement);
+	(a => { document.body.removeChild(a); m.push(a) })(dlg({title:'static 2', top:50, left:470}).parentElement)
+	m.push(1)
+})
+</script>
+</head><body></body></html>
