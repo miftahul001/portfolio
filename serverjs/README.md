@@ -10,3 +10,6 @@ aSocket.js = handle websocket connection
 # run
 
 node aServer.js
+
+# download
+mserv.zip
