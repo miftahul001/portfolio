@@ -76,6 +76,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#f00',
 					borderColor: '#f00',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				{
 					label: 'Treg2',
@@ -83,6 +85,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#00f',
 					borderColor: '#00f',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				{
 					label: 'Treg3',
@@ -90,6 +94,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#0f0',
 					borderColor: '#0f0',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				{
 					label: 'Treg4',
@@ -97,6 +103,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#ff0',
 					borderColor: '#ff0',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				{
 					label: 'Treg5',
@@ -104,6 +112,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#f0f',
 					borderColor: '#f0f',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				{
 					label: 'Treg6',
@@ -111,6 +121,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#0ff',
 					borderColor: '#0ff',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				{
 					label: 'Treg7',
@@ -118,6 +130,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#333',
 					borderColor: '#333',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				]
 			},
@@ -234,6 +248,8 @@ addEventListener('load', () => {
 						fill: false,
 						backgroundColor: '#999A9E',
 						borderColor: '#999A9E',
+						borderWidth: 1,
+						radius: 1.5,
 					},
 					{
 						label: 'Latency',
@@ -241,6 +257,8 @@ addEventListener('load', () => {
 						fill: false,
 						backgroundColor: '#D3AF3D',
 						borderColor: '#D3AF3D',
+						borderWidth: 1,
+						radius: 1.5,
 					},
 					{
 						label: 'Jitter',
@@ -248,6 +266,8 @@ addEventListener('load', () => {
 						fill: false,
 						backgroundColor: '#D9D9D9',
 						borderColor: '#D9D9D9',
+						borderWidth: 1,
+						radius: 1.5,
 					},
 					]
 				},
@@ -487,6 +507,8 @@ addEventListener('load', () => {
 						fill: false,
 						backgroundColor: '#477F9F',
 						borderColor: '#477F9F',
+						borderWidth: 1,
+						radius: 1.5,
 					},]
 				},
 				options: {
@@ -534,6 +556,8 @@ addEventListener('load', () => {
 						fill: false,
 						backgroundColor: '#477F9F',
 						borderColor: '#477F9F',
+						borderWidth: 1,
+						radius: 1.5,
 					},]
 				},
 				options: {
@@ -581,6 +605,8 @@ addEventListener('load', () => {
 						fill: false,
 						backgroundColor: '#477F9F',
 						borderColor: '#477F9F',
+						borderWidth: 1,
+						radius: 1.5,
 					},]
 				},
 				options: {
