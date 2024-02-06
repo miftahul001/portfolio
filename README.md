@@ -18,6 +18,8 @@ https://miftahul001.github.io/portfolio/sheet/
 
 https://miftahul001.github.io/portfolio/qosmo/
 
+https://miftahul001.github.io/portfolio/qosmo2/
+
 https://miftahul001.github.io/portfolio/REST-API/
 
 https://github.com/miftahul001/portfolio/tree/main/serverjs
