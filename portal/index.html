@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="portal tioc" content="portal tioc" />
+<title>Portal</title>
+<link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+<style>*{font-family:'Ubuntu';box-sizing:border-box;margin:0;padding:0;}</style>
+<style>
+.LoginInput {
+	background:rgba(255,255,255,0.7);
+	border: none;
+	border-bottom: 1px solid #c0c0c0;
+	border-radius:5px;
+	padding: 11px 29px;
+	font-size: 14px;
+}
+.LoginInput::placeholder { color: rgba(0,0,0,0); }
+.LoginInput::-ms-input-placeholder { color: rgba(0,0,0,0); }
+.LoginInput + span {
+	font-size: 14px;
+	position: absolute;
+	top: 29px;
+	left: 27px;
+	color: #505050;
+	pointer-events: none;
+	transition: top .5s, left .5s;
+}
+.LoginInput:focus + span, .LoginInput:not(:placeholder-shown) + span {
+	top: 0px;
+	left: 11px;
+	color: #313131;
+}
+@keyframes bgEdit {
+	0% {background-position: 100% 100%;;}
+	100% {background-position: 0 0;}
+}
+.hover1:hover { transform:scale(1.1); }
+</style>
+<script src="https://miftahul001.github.io/m/m.js"></script>
+<script src="portal.js"></script>
+</head><body></body></html>
