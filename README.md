@@ -2,7 +2,7 @@
 
 https://miftahul001.github.io/portfolio/dialog-popup/
 
-https://miftahul001.github.io/project-fantasy/cv.html
+https://miftahul001.github.io/portfolio/cv/
 
 https://miftahul001.github.io/portfolio/portal/
 
