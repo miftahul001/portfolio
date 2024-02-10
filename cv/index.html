@@ -9,484 +9,584 @@
 <style> body{font-family:'Ubuntu';}
 canvas{border:1px solid red;}</style>
 
+<script>
+
+addEventListener('load', () => {
+
+const jsPDF = jspdf.jsPDF
+const frame = document.querySelector('iframe')
+const imgs = []
+
+const doc = new jsPDF('p', 'pt', [ 595.28,  841.89])
+//var ubuntu, ubuntuBold
+// add the font to jsPDF
+//doc.addFileToVFS("res/Ubuntu-Regular.ttf", ubuntu)
+doc.addFont("res/Ubuntu-Regular.ttf", "ubuntu", "normal")
+//doc.addFileToVFS("res/Ubuntu-Bold.ttf", ubuntuBold)
+doc.addFont("res/Ubuntu-Bold.ttf", "ubuntuBold", "normal")
+
+const a = document.createElement('canvas').getContext('2d')
+a.canvas.width = 596
+a.canvas.height = 842
+
+a.fillStyle = '#ffffff'
+a.fillRect(0,0, a.canvas.width, a.canvas.height);
+
+const bg1 = document.createElement('canvas').getContext('2d')
+bg1.canvas.width = 596
+bg1.canvas.height = 842
+
+bg1.fillStyle = '#ffffff'
+bg1.fillRect(0,0, bg1.canvas.width, bg1.canvas.height);
+
+const range = (ctx,x,y,value) => {
+	ctx.save()
+	y -= 4
+	const g = ctx.createLinearGradient(x,0, x+60,0)
+	g.addColorStop("0", "#990000")
+	g.addColorStop("0.3", "#990099")
+	g.addColorStop("1.0", "#000099")
+	ctx.lineWidth = 8
+	ctx.setLineDash([5,1])
+	ctx.strokeStyle = '#ddd'
+	ctx.beginPath()
+	ctx.moveTo(x,y)
+	ctx.lineTo(x+60,y)
+	ctx.stroke()
+	
+	ctx.strokeStyle = g
+	ctx.beginPath()
+	ctx.moveTo(x,y)
+	ctx.lineTo(x+(value*.6),y)
+	ctx.stroke()
+	ctx.restore()
+}
+
+const dot1 = (ctx, x, y, r) => {
+	ctx.beginPath()
+	ctx.moveTo(x, y)
+	ctx.arc(x, y, r, 0, Math.PI * 2)
+	ctx.stroke()
+}
+
+const draw1 = () => {
+
+range(a, 150,405,90) // javascript
+range(a, 150,420,90) // CSS
+range(a, 150,435,90) // HTML5
+range(a, 150,450,80) // SQL
+
+range(a, 450,405,80) // PHP
+range(a, 450,420,80) // JAVA
+range(a, 450,435,60) // C
+range(a, 450,450,60) // Bash
+
+range(a, 150,490,70) // Reactjs
+range(a, 150,505,60) // Codeigniter
+range(a, 150,520,60) // Laravel
+
+range(a, 450,490,90) // Mysql
+range(a, 450,505,70) // postgresql
+range(a, 450,520,90) // Sqlite3
+range(a, 450,535,60) // Couchdb
+range(a, 450,550,60) // Pouchdb
+
+range(a, 150,565,90) // Chartjs
+range(a, 150,580,80) // Highchart
+range(a, 150,595,90) // Leaflet
+range(a, 150,610,90) // mapbox
+range(a, 150,625,80) // jspdf
+range(a, 150,640,80) // sheetjs
+
+//'#2D557D' //45,85,125
+//#0073C7   //00,115,199
+
+a.fillStyle = '#2D557D'
+a.strokeStyle = '#2D557D'
+a.lineWidth = 3
+a.beginPath()
+a.moveTo(150, 195)
+a.lineTo(400, 195)
+a.stroke()
+
+//a.fillStyle = '#0073C7'
+a.strokeStyle = '#0073C7'
+a.lineWidth = 1
+a.beginPath()
+a.moveTo(70, 233)
+a.lineTo(120, 233)
+
+a.moveTo(70, 273)
+a.lineTo(127, 273)
+
+a.moveTo(70, 378)
+a.lineTo(152, 378)
+a.stroke()
+
+//a.fillStyle = '#212121'
+//a.strokeStyle = '#212121'
+//a.lineWidth = 2
+//dot1(a, 70, 280, 2)
+
+doc.addImage(a.canvas.toDataURL(), 'png', 0, 0, 595.28, 841.89)
+
+
+doc.setFont("ubuntuBold")
+doc.setTextColor(45, 85, 125)
+doc.setFontSize(20)
+var text = 'MIFTAHUL MUNIR'
+//const w = 595
+//doc.text(text, (w-doc.getTextWidth(text))/2, 80)
+doc.text(text, 150, 170)
+
+text = 'FULL-STACK DEVELOPER'
+doc.setFontSize(18)
+doc.text(text, 150, 190)
+
+doc.setFontSize(12)
+doc.setTextColor(00, 115, 199)
+text = 'Education'
+doc.text(text, 70, 230)
+
+doc.setFontSize(11)
+doc.setTextColor(33, 33, 33)
+text = 'STTTelkom  Bandung, Indonesia'
+doc.text(text, 70, 245)
+
+doc.setFontSize(12)
+doc.setTextColor(00, 115, 199)
+text = 'Experience'
+doc.text(text, 70, 270)
+
+doc.setFontSize(11)
+doc.setTextColor(33, 33, 33)
+text = 'PT. Muloska, Jakarta Selatan (2014 - 2015)'
+doc.text(text, 70, 285)
+
+doc.setFont("ubuntu")
+text = '- Junior web developer'
+doc.text(text, 75, 300)
+
+doc.setFont("ubuntuBold")
+text = 'CV. SCT, Bandung (Juni 2022 - Current)'
+doc.text(text, 70, 320)
+
+doc.setFont("ubuntu")
+text = '- Main role Front-end Developer'
+doc.text(text, 75, 335)
+text = '- Secondary role Full-stack Developer'
+doc.text(text, 75, 350)
+
+
+doc.setFont("ubuntuBold")
+doc.setFontSize(12)
+doc.setTextColor(00, 115, 199)
+text = 'Technical Skills'
+doc.text(text, 70, 375)
+
+doc.setFontSize(11)
+doc.setTextColor(33, 33, 33)
+text = 'Main Programming'
+doc.text(text, 70, 390)
+
+text = 'Secondary Programming'
+doc.text(text, 320, 390)
+
+text = 'Framework'
+doc.text(text, 70, 475)
+
+text = 'Database'
+doc.text(text, 320, 475)
+
+text = 'Library'
+doc.text(text, 70, 550)
+
+//Main Programming
+doc.setFont("ubuntu")
+text = '- Javascript'
+doc.text(text, 75, 405)
+
+text = '- CSS3'
+doc.text(text, 75, 420)
+
+text = '- HTML5'
+doc.text(text, 75, 435)
+
+text = '- SQL'
+doc.text(text, 75, 450)
+
+//Secondary Programming
+text = '- PHP'
+doc.text(text, 320, 405)
+
+text = '- JAVA (Android Studio)'
+doc.text(text, 320, 420)
+
+text = '- C'
+doc.text(text, 320, 435)
+
+text = '- Bash (Shell Script)'
+doc.text(text, 320, 450)
+
+//Framework
+text = '- Reactjs'
+doc.text(text, 75, 490)
+
+text = '- Codeigniter'
+doc.text(text, 75, 505)
+
+text = '- Laravel'
+doc.text(text, 75, 520)
+
+//Database
+text = '- Mysql'
+doc.text(text, 320, 490)
+
+text = '- Postgresql'
+doc.text(text, 320, 505)
+
+text = '- Sqlite3'
+doc.text(text, 320, 520)
+
+text = '- CouchDB (NoSQL)'
+doc.text(text, 320, 535)
+
+text = '- Pouchdb (NoSQL)'
+doc.text(text, 320, 550)
+
+//Framework
+text = '- Chartjs'
+doc.text(text, 75, 565)
+
+text = '- Highchart'
+doc.text(text, 75, 580)
+
+text = '- Leafletjs'
+doc.text(text, 75, 595)
+
+text = '- Mapbox'
+doc.text(text, 75, 610)
+
+text = '- Jspdf'
+doc.text(text, 75, 625)
+
+text = '- Sheetjs'
+doc.text(text, 75, 640)
+
+doc.addPage()
+
+bg1.fillStyle = '#2D557D'
+//bg1.fillStyle = '#0073C7'
+bg1.strokeStyle = '#0073C7'
+bg1.lineWidth = 1
+bg1.beginPath()
+bg1.moveTo(70, 233.5)
+bg1.lineTo(107, 233.5)
+bg1.stroke()
+
+doc.addImage(bg1.canvas.toDataURL(), 'png', 0, 0, 595.28, 841.89)
+
+doc.setFont("ubuntuBold")
+doc.setFontSize(12)
+doc.setTextColor(00, 115, 199)
+text = 'Project'
+doc.text(text, 70, 230)
+
+doc.setFontSize(11)
+doc.setTextColor(33, 33, 33)
+text = 'Portfolio'
+doc.textWithLink(text, 70,245, {url:'https://github.com/miftahul001/portfolio'})
+
+doc.setFont("ubuntu")
+
+text = '-'
+doc.text(text, 70, 260)
+
+text = 'Prototypes of projects and modules that I have worked on'
+doc.text(text, 77, 260)
+
+text = '-'
+doc.text(text, 70, 275)
+text = 'https://github.com/miftahul001/portfolio'
+doc.textWithLink(text, 77,275, {url:'https://github.com/miftahul001/portfolio'})
+
+
+doc.setFont("ubuntuBold")
+
+text = 'Mobile Alert, June 2022 - August 2023'
+doc.text(text, 70, 295)
+
+doc.setFont("ubuntu")
+
+text = '-'
+doc.text(text, 70, 310)
+
+text = 'Start a project as a front-end developer, then become a full stack developer'
+doc.text(text, 77, 310)
+
+text = '-'
+doc.text(text, 70, 325)
+
+text = 'Client, PT. Telkom'
+doc.text(text, 77, 325)
+
+text = '-'
+doc.text(text, 70, 340)
+
+text = 'Network benchmark application with several providers visualized in color on a map using'
+doc.text(text, 77, 340)
+
+text = 'MapBox, starting from national, regional, city to village levels. The project started in June'
+doc.text(text, 77, 355)
+
+text = '2022 and was launched August 2023 (15 months), now maintaining database.'
+doc.text(text, 77, 370)
+
+doc.setFont("ubuntuBold")
+doc.setFontSize(11)
+doc.setTextColor(33, 33, 33)
+text = 'Always On, March 2023 - July 2023' 
+doc.textWithLink(text, 70,390, {url:'https://miftahul001.github.io/portfolio/tera/'})
+//doc.text(text, 70, 390)
+
+doc.setFont("ubuntu")
+
+text = '-'
+doc.text(text, 70, 405)
+
+text = 'Start a project as a front-end developer, then become a full stack developer'
+doc.text(text, 77, 405)
+
+text = '-'
+doc.text(text, 70, 420)
+
+text = 'Client, PT. Telkom'
+doc.text(text, 77, 420)
+
+text = '-'
+doc.text(text, 70, 435)
+
+text = 'PT. Telkom backbone network traffic monitoring application throughout Indonesia in real'
+doc.text(text, 77, 435)
+
+text = 'time. Visualized with network nodes and lines, interactively and dynamically using MapBox.'
+doc.text(text, 77, 450)
+
+text = 'There is also a failover simulation feature which functions to predict traffic flow if one or'
+doc.text(text, 77, 465)
+
+text = 'more network segments are lost. Starts March 2023, finishes July 2023 (5 months)'
+doc.text(text, 77, 480)
+
+text = '-'
+doc.text(text, 70, 495)
+
+text = 'Prototype'
+doc.textWithLink(text, 77,495, {url:'https://miftahul001.github.io/portfolio/tera/'})
+
+text = 'https://miftahul001.github.io/portfolio/tera/'
+doc.text(text, 140, 495)
+
+doc.setFont("ubuntuBold")
+doc.setFontSize(11)
+doc.setTextColor(33, 33, 33)
+text = 'Selfie Pro, May 2023 - present'
+doc.textWithLink(text, 70,515, {url:'https://miftahul001.github.io/selfie/'})
+//doc.text(text, 70, 515)
+
+doc.setFont("ubuntu")
+
+text = '-'
+doc.text(text, 70, 530)
+
+text = 'Front-end developer'
+doc.text(text, 77, 530)
+
+text = '-'
+doc.text(text, 70, 545)
+
+text = 'Client, PT. Telkom'
+doc.text(text, 77, 545)
+
+text = '-'
+doc.text(text, 70, 560)
+
+text = 'Application to control hardware remotely. Starting from hardware at level 3 to hardware'
+doc.text(text, 77, 560)
+
+text = 'on the customer side. I was tasked with creating a pro version of the front-end interface,'
+doc.text(text, 77, 575)
+
+text = 'replacing selfie version 1.0. Starting in May 2023, and currently I am still waiting for'
+doc.text(text, 77, 590)
+
+text = 'developments from the back-end developer side.'
+doc.text(text, 77, 605)
+
+text = '-'
+doc.text(text, 70, 620)
+
+text = 'Prototype'
+doc.textWithLink(text, 77,620, {url:'https://miftahul001.github.io/selfie/'})
+
+text = 'https://miftahul001.github.io/selfie/'
+doc.text(text, 140, 620)
+
+doc.setFont("ubuntuBold")
+doc.setFontSize(11)
+doc.setTextColor(33, 33, 33)
+text = 'Qosmo, Agustus 2023 - Desember 2023' 
+doc.textWithLink(text, 70,640, {url:'https://miftahul001.github.io/portfolio/qosmo/'})
+//doc.text(text, 70, 640)
+
+doc.setFont("ubuntu")
+
+text = '-'
+doc.text(text, 70, 655)
+
+text = 'Full stack developer'
+doc.text(text, 77, 655)
+
+text = '-'
+doc.text(text, 70, 670)
+
+text = 'Client, PT. Telkom'
+doc.text(text, 77, 670)
+
+text = '-'
+doc.text(text, 70, 685)
+
+text = 'Application to handle PT Telkom ticketing sites throughout Indonesia, replacing'
+doc.text(text, 77, 685)
+
+text = 'spreadsheets. Starting August 2023 launching December 2023, now database maintenance.'
+doc.text(text, 77, 700)
+
+text = '-'
+doc.text(text, 70, 715)
+
+text = 'Prototype'
+doc.textWithLink(text, 77,715, {url:'https://miftahul001.github.io/portfolio/qosmo/'})
+
+text = 'https://miftahul001.github.io/portfolio/qosmo/'
+doc.text(text, 140, 715)
+
+
+doc.addPage()
+
+bg1.fillStyle = '#FFFFFF'
+bg1.strokeStyle = '#FFFFFF'
+bg1.lineWidth = 2
+bg1.beginPath()
+bg1.moveTo(70, 233.5)
+bg1.lineTo(107, 233.5)
+bg1.stroke()
+doc.addImage(bg1.canvas.toDataURL(), 'png', 0, 0, 595.28, 841.89)
+
+doc.setFont("ubuntuBold")
+doc.setFontSize(11)
+doc.setTextColor(33, 33, 33)
+text = 'Qosmo v2, Januari 2024 - present'
+doc.textWithLink(text, 70,230, {url:'https://miftahul001.github.io/portfolio/qosmo2/'})
+//doc.text(text, 70, 230)
+
+doc.setFont("ubuntu")
+
+text = '-'
+doc.text(text, 70, 245)
+
+text = 'Full stack developer'
+doc.text(text, 77, 245)
+
+text = '-'
+doc.text(text, 70, 260)
+
+text = 'Client, PT. Telkom'
+doc.text(text, 77, 260)
+
+text = '-'
+doc.text(text, 70, 275)
+
+text = 'Application for handling site ticketing, monitoring access performance, monitoring core'
+doc.text(text, 77, 275)
+
+text = 'performance, monitoring orders, and flagging types of problems at PT Telkom sites'
+doc.text(text, 77, 290)
+
+text = 'throughout Indonesia. Divided into three sections, for executives, top-down users, and'
+doc.text(text, 77, 305)
+
+text = 'operational users.'
+doc.text(text, 77, 320)
+
+text = '-'
+doc.text(text, 70, 335)
+
+text = 'Prototype'
+doc.textWithLink(text, 77,335, {url:'https://miftahul001.github.io/portfolio/qosmo2/'})
+
+text = 'https://miftahul001.github.io/portfolio/qosmo2/'
+doc.text(text, 140, 335)
+
+
+frame.src=doc.output('datauristring');//URL.createObjectURL(doc.output('blob'));
+}
+
+(() => {
+	const b = new Image()
+	b.onload = () => {
+		//doc.addImage(b, 'JPEG', 40, 73, 150, 150)
+		//a.drawImage(b, -210,20)
+		a.drawImage(b, 0,0, b.width, b.height, -50,20,200,200);
+		bg1.drawImage(b, 0,0, b.width, b.height, -50,20,200,200);
+		
+		(b => {
+			b.onload = () => {
+				a.drawImage(b, -10,-3)
+				bg1.drawImage(b, -10,-3);
+				
+				(b => {
+					b.onload = () => {
+						a.drawImage(b, 0,0, b.width, b.height, 400,690,200,200);
+						bg1.drawImage(b, 0,0, b.width, b.height, 400,690,200,200);
+						
+						(b => {
+							b.onload = () => {
+								//a.drawImage(b, 0,0, b.width, b.height, 400,690,200,200);
+								//a.drawImage(b, 0,0, b.width, b.height, 20,30,200,200)
+								
+								a.save()
+								//a.moveTo(500, 20)
+								a.beginPath()
+								a.arc(475, 120, 95, 0, Math.PI * 2)
+								a.closePath()
+								a.clip()
+								a.drawImage(b, 380, 25, 190, 190)
+								a.restore()
+								
+								draw1()
+							}
+							b.src = 'foto1.jpeg'
+						})(new Image())
+						
+					}
+					b.src = 'a2.png'
+				})(new Image())
+				
+			}
+			b.src = 'a3.png'
+		})(new Image())
+		
+	}
+	b.src = 'a1.png'
+})()
+
+})
+
+</script>
+
 </head><body>
 <div style="position:fixed;top:10px;left:10px;right:10px;bottom:10px;display:flex;padding:0;">
-<iframe style="flex-grow:1;margin:0;padding:0;"></iframe>
-</div><script>
-const frame=document.querySelector('iframe');
-jsPDF = jspdf.jsPDF;
-
-const doc = new jsPDF('p', 'pt', [ 595.28,  841.89]);
-var ubuntu, ubuntuBold;
-// add the font to jsPDF
-doc.addFileToVFS("res/Ubuntu-Regular.ttf", ubuntu);
-doc.addFont("res/Ubuntu-Regular.ttf", "ubuntu", "normal");
-doc.addFileToVFS("res/Ubuntu-Bold.ttf", ubuntuBold);
-doc.addFont("res/Ubuntu-Bold.ttf", "ubuntuBold", "normal");
-
-const a=document.createElement('canvas').getContext('2d');
-a.canvas.width = 595;
-a.canvas.height = 841;
-//document.body.appendChild(a.canvas);
-
-/**
- * Draws a rounded rectangle using the current state of the canvas.
- * If you omit the last three params, it will draw a rectangle
- * outline with a 5 pixel border radius
- * @param {CanvasRenderingContext2D} ctx
- * @param {Number} x The top left x coordinate
- * @param {Number} y The top left y coordinate
- * @param {Number} width The width of the rectangle
- * @param {Number} height The height of the rectangle
- * @param {Number} [radius = 5] The corner radius; It can also be an object 
- *                 to specify different radii for corners
- * @param {Number} [radius.tl = 0] Top left
- * @param {Number} [radius.tr = 0] Top right
- * @param {Number} [radius.br = 0] Bottom right
- * @param {Number} [radius.bl = 0] Bottom left
- * @param {Boolean} [fill = false] Whether to fill the rectangle.
- * @param {Boolean} [stroke = true] Whether to stroke the rectangle.
- */
-
-const roundRect=(ctx, x, y, width, height, radius = 5, fill = false, stroke = true )=>{
-	if (typeof radius === 'number') radius = {tl: radius, tr: radius, br: radius, bl: radius};
-	else radius = {...{tl: 0, tr: 0, br: 0, bl: 0}, ...radius};
-	
-	ctx.beginPath();
-	ctx.moveTo(x + radius.tl, y);
-	ctx.lineTo(x + width - radius.tr, y);
-	ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
-	ctx.lineTo(x + width, y + height - radius.br);
-	ctx.quadraticCurveTo(x + width, y + height, x + width - radius.br, y + height);
-	ctx.lineTo(x + radius.bl, y + height);
-	ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
-	ctx.lineTo(x, y + radius.tl);
-	ctx.quadraticCurveTo(x, y, x + radius.tl, y);
-	ctx.closePath();
-	if (fill) ctx.fill();
-	if (stroke) ctx.stroke();
-}
-//roundRect(ctx, 300, 5, 200, 100, { tl: 50, br: 25 }, true);
-const range=(ctx,x,y,value)=>{
-	ctx.save();
-	y-=4;
-	const g = ctx.createLinearGradient(x,0, x+60,0);
-	g.addColorStop("0", "#ff0000");
-	g.addColorStop("0.3", "#ffdd00");
-	g.addColorStop("1.0", "#009900");
-	ctx.lineWidth = 8;
-	ctx.setLineDash([5,1]);
-	ctx.strokeStyle = '#ddd';
-	ctx.beginPath();
-	ctx.moveTo(x,y);
-	ctx.lineTo(x+60,y);
-	ctx.stroke();
-	
-	ctx.strokeStyle = g;
-	ctx.beginPath();
-	ctx.moveTo(x,y);
-	ctx.lineTo(x+(value*.6),y);
-	ctx.stroke();
-	ctx.restore();
-}
-
-const bg = a.createLinearGradient(0,0, a.canvas.width,a.canvas.height);
-bg.addColorStop(0, '#d9d9ff');
-bg.addColorStop(0.5, '#c9d9e9');
-bg.addColorStop(1.0, '#d9ffd9');
-a.fillStyle = bg;
-a.fillRect(0,0,a.canvas.width,a.canvas.height);
-
-//a.font='700 28px Ubuntu';
-//a.strokeStyle = '#999';
-const gradient = a.createLinearGradient(0,0, a.canvas.width,a.canvas.height);
-gradient.addColorStop("0", "black");
-gradient.addColorStop("0.5", "yellow");
-gradient.addColorStop("1.0", "red");
-a.strokeStyle = gradient;
-const grad = a.createLinearGradient(0,0, a.canvas.width,0);
-grad.addColorStop("0", "black");
-grad.addColorStop("1.0", "blue");
-a.fillStyle = grad;
-a.lineWidth = 4;
-//roundRect(a, 50, 50, 210*5-100, 297*5-100);
-roundRect(a, 30, 30, a.canvas.width-60,a.canvas.height-60, {tl: 1, tr: 80, br: 1, bl: 80});
-
-var x=198, x1=76, y=80, textHeight=13;
-x1=130;y=379;
-range(a,x1,y,90);
-y+=textHeight;
-range(a,x1,y,80);
-y+=textHeight;
-range(a,x1,y,70);
-y+=textHeight;
-
-y+=textHeight;
-y+=textHeight;
-range(a,x1,y,80);
-y+=textHeight;
-range(a,x1,y,90);
-y+=textHeight;
-range(a,x1,y,50);
-y+=textHeight;
-range(a,x1,y,50);
-y+=textHeight;
-
-y+=textHeight;
-y+=textHeight;
-range(a,x1,y,40);
-y+=textHeight;
-range(a,x1,y,30);
-y+=textHeight;
-range(a,x1,y,80);
-y+=textHeight;
-range(a,x1,y,40);
-y+=textHeight;
-range(a,x1,y,40);
-y+=textHeight;
-range(a,x1,y,80);
-y+=textHeight;
-range(a,x1,y,30);
-y+=textHeight;
-range(a,x1,y,50);
-y+=textHeight;
-range(a,x1,y,40);
-y+=textHeight;
-y+=textHeight;
-range(a,x1 ,y,70);
-y+=textHeight;
-y+=textHeight;
-range(a,x1,y,70);
-y+=textHeight;
-range(a,x1,y,70);
-y+=textHeight;
-range(a,x1,y,50);
-y+=textHeight;
-range(a,x1,y,40);
-y+=textHeight;
-
-x1=410;
-y=366;
-y+=textHeight;
-range(a,x1,y,70);
-y+=textHeight;
-range(a,x1,y,80);
-y+=textHeight;
-range(a,x1,y,60);
-y+=textHeight;
-range(a,x1,y,70);
-y+=textHeight;
-range(a,x1,y,50);
-y+=textHeight;
-range(a,x1,y,70);
-y+=textHeight;
-range(a,x1,y,30);
-y+=textHeight;
-
-y+=textHeight;
-y+=textHeight;
-range(a,x1,y,80);
-y+=textHeight;
-range(a,x1,y,90);
-y+=textHeight;
-range(a,x1,y,90);
-y+=textHeight;
-range(a,x1,y,70);
-y+=textHeight;
-range(a,x1,y,50);
-y+=textHeight;
-range(a,x1,y,30);
-y+=textHeight;
-
-y+=textHeight;
-y+=textHeight;
-range(a,x1,y,70);
-y+=textHeight;
-range(a,x1,y,60);
-y+=textHeight;
-range(a,x1,y,60);
-y+=textHeight;
-range(a,x1,y,60);
-y+=textHeight;
-range(a,x1,y,60);
-y+=textHeight;
-
-a.font='130px Ubuntu';
-//a.fillText('😁', 40, 200)
-
-doc.addImage(a.canvas.toDataURL("image/jpeg"), 'JPEG', 0, 0, 595.28, 841.89);
-//doc.addImage(a.canvas.toDataURL("image/jpeg"), 'JPEG', 0, 0, 595.28, 841.89);
-
-(b => {
-	b.onload = () => {
-		//(img, sx, sy, swidth, sheight, x, y, width, height)
-		//console.log(b.width+'   '+b.height)
-		//a.drawImage(b, 0,0, b.width, b.height, 40,200,200,200)
-		//doc.addImage(c.canvas.toDataURL(), 'png', 10, 10, 500, 500);
-		//doc.addImage(c.canvas.toDataURL(), 'png', 10, 10, 500, 500);
-		//doc.addImage(c.canvas.toDataURL("image/jpeg"), 'JPEG', 40, 200, 200, 200);
-		doc.addImage(b, 'JPEG', 40, 73, 150, 150)
-		//frame.src=doc.output('datauristring')
-
-doc.setFont("ubuntuBold");
-const w=595;
-var text='Curriculum Vitae';
-doc.setFontSize(18);
-doc.text(text, (w-doc.getTextWidth(text))/2, 60);
-
-x1=76; y=80;
-doc.setFont("ubuntu");
-doc.setFontSize(11);
-x1+=x;
-doc.text('Nama', x, y); doc.text(':', x1, y); doc.text('Miftahul Munir', x1+8, y);
-y+=textHeight;
-doc.text('Place of birth', x,y); doc.text(':', x1, y); doc.text('Jombang', x1+8,y);
-y+=textHeight;
-doc.text('Date of birth', x,y); doc.text(':', x1, y); doc.text('03 Juli 1982', x1+8,y);
-y+=textHeight;
-doc.text('Age', x,y); doc.text(':', x1, y); doc.text('40', x1+8,y);
-y+=textHeight;
-doc.text('Address', x,y); doc.text(':', x1, y); doc.text('Perumtas 3 blok c4 no.02, Popoh, Wonoayu, Sidoarjo,', x1+8,y);
-y+=textHeight;
-												doc.text('Jawa Timur, 61261', x1+8,y);
-y+=textHeight;
-doc.text('Phone', x,y); doc.text(':', x1, y); doc.text('+62-857-3044-1081', x1+8,y);
-y+=textHeight;
-doc.text('Email', x,y); doc.text(':', x1, y); doc.text('miftahulmunir001@gmail.com', x1+8,y);
-y+=textHeight;
-
-doc.setFont("ubuntuBold");
-y+=textHeight;
-doc.text('Education', x,y);
-y+=textHeight;
-doc.setFont("ubuntu");
-doc.text('- RA Darul Ulum Jombang', x,y);
-y+=textHeight;
-doc.text('- MI Darul Ulum Jombang', x,y);
-y+=textHeight;
-doc.text('- MTsN Bahrul Ulum (PonPes Tambakberas) Jombang', x,y);
-y+=textHeight;
-doc.text('- SMAN 3 Jombang', x,y);
-y+=textHeight;
-doc.text('- D3 Teknik Informatika STTTelkom Bandung', x,y);
-y+=textHeight;
-
-x=38;
-doc.setFont("ubuntuBold");
-y+=textHeight;
-doc.text('Experience', x,y);
-y+=textHeight;
-doc.setFont("ubuntu");
-doc.text('- Company PT. Muloska, software house (Jakarta Selatan) as Full Stack developer (2015 - 2016)', x,y);
-y+=textHeight;
-doc.text('- Company CV. SCT, software house (Kota Bandung) Main role as Frontend developer,', x,y);
-y+=textHeight;
-doc.text('  secondary full stack developer (2022 - current)', x,y);
-y+=textHeight;
-
-doc.setFont("ubuntuBold");
-y+=textHeight;
-doc.text('Skills', x,y);
-y+=textHeight;
-doc.text('- Main Programming', x,y);
-y+=textHeight;
-doc.setFont("ubuntu");
-x1=x+90;
-doc.text('- Javascript', x,y);
-y+=textHeight;
-doc.text('- CSS3', x,y);
-y+=textHeight;
-doc.text('- HTML5', x,y);
-y+=textHeight;
-
-doc.setFont("ubuntuBold");
-y+=textHeight;
-doc.text('- DataBases', x,y);
-doc.setFont("ubuntu");
-y+=textHeight;
-x1=x+90;
-doc.text('- Mysql', x,y);
-y+=textHeight;
-doc.text('- Sqlite3', x,y);
-y+=textHeight;
-doc.text('- MongoDB', x,y);
-y+=textHeight;
-doc.text('- Others', x,y);
-y+=textHeight;
-
-doc.setFont("ubuntuBold");
-y+=textHeight;
-doc.text('- Framework and Libraries', x,y);
-doc.setFont("ubuntu");
-y+=textHeight;
-doc.text('- CodeIgniter', x,y); range(a,x1,y,40);
-y+=textHeight;
-doc.text('- Laravel', x,y); range(a,x1,y,30);
-y+=textHeight;
-doc.text('- Mapbox', x,y); range(a,x1,y,80);
-y+=textHeight;
-doc.text('- Openlayers', x,y); range(a,x1,y,40);
-y+=textHeight;
-doc.text('- Leaflet', x,y); range(a,x1,y,40);
-y+=textHeight;
-doc.text('- Turfjs', x,y); range(a,x1,y,80);
-y+=textHeight;
-doc.text('- Chartjs', x,y); range(a,x1,y,30);
-y+=textHeight;
-doc.text('- Highcharts', x,y); range(a,x1,y,50);
-y+=textHeight;
-doc.text('- TensorFlow', x,y);
-y+=textHeight;
-doc.text('   (machine learning and artificial intelligence)', x,y); range(a,x1+70,y,40);
-y+=textHeight;
-doc.text('- MediaPipe', x,y);
-y+=textHeight;
-doc.text('  Selfie Segmentation', x,y); range(a,x1+70 ,y,70);
-y+=textHeight;
-doc.text('- jsPDF', x,y); range(a,x1,y,70);
-y+=textHeight;
-doc.text('- sheetjs', x,y); range(a,x1,y,70);
-y+=textHeight;
-doc.text('- protobufjs', x,y); range(a,x1,y,50);
-y+=textHeight;
-doc.text('- Others', x,y); range(a,x1,y,40);
-y+=textHeight;
-
-x=290;
-y=366;
-doc.setFont("ubuntuBold");
-doc.text('- Secondary Programming', x,y);
-doc.setFont("ubuntu");
-y+=textHeight;
-x1=x+90;
-doc.text('- Reactjs', x,y); range(a,x1,y,70);
-y+=textHeight;
-doc.text('- PHP', x,y); range(a,x1,y,80);
-y+=textHeight;
-doc.text('- JAVA', x,y); range(a,x1,y,60);
-y+=textHeight;
-doc.text('- Android Studio (JAVA)', x,y); range(a,x1+85,y,70);
-y+=textHeight;
-doc.text('- C', x,y); range(a,x1,y,50);
-y+=textHeight;
-doc.text('- Pascal', x,y); range(a,x1,y,70);
-y+=textHeight;
-doc.text('- Others', x,y); range(a,x1,y,30);
-y+=textHeight;
-
-y+=textHeight;
-doc.setFont("ubuntuBold");
-doc.text('- Main Operating System', x,y);
-doc.setFont("ubuntu");
-y+=textHeight;
-x1=x+150;
-doc.text('- Ubuntu', x,y); range(a,x1,y,80);
-y+=textHeight;
-doc.text('- Puppy Linux', x,y); range(a,x1,y,90);
-y+=textHeight;
-doc.text('- Tinycore Linux', x,y); range(a,x1,y,90);
-y+=textHeight;
-doc.text('- Custom Linux', x,y); range(a,x1,y,70);
-y+=textHeight;
-doc.text('- Windows 7,8,10,11', x,y); range(a,x1,y,50);
-y+=textHeight;
-doc.text('- Others', x,y); range(a,x1,y,30);
-y+=textHeight;
-
-y+=textHeight;
-doc.setFont("ubuntuBold");
-doc.text('- Linux Utilities', x,y);
-doc.setFont("ubuntu");
-y+=textHeight;
-x1=x+90;
-doc.text('- Bash', x,y); range(a,x1,y,70);
-y+=textHeight;
-doc.text('- sed', x,y); range(a,x1,y,60);
-y+=textHeight;
-doc.text('- AWK', x,y); range(a,x1,y,60);
-y+=textHeight;
-doc.text('- grep', x,y); range(a,x1,y,60);
-y+=textHeight;
-doc.text('- Others', x,y); range(a,x1,y,60);
-y+=textHeight;
-
-doc.addPage();
-a.fillStyle = bg;
-a.fillRect(0,0,a.canvas.width,a.canvas.height);
-a.fillStyle = grad;
-a.lineWidth = 4;
-roundRect(a, 30, 30, a.canvas.width-60,a.canvas.height-60, {tl: 1, tr: 80, br: 1, bl: 80});
-doc.addImage(a.canvas.toDataURL("image/jpeg"), 'JPEG', 0, 0, 595.28, 841.89);
-
-x=40;
-y=60;
-//y+=textHeight;
-doc.setFont("ubuntuBold");
-doc.text('References', x,y);
-doc.setFont("ubuntu");
-y+=textHeight;
-x1=x+360;
-doc.textWithLink('- w3schools', x,y, { url:'https://www.w3schools.com' }); range(a,x1,y,80);
-y+=textHeight;
-doc.textWithLink('- developer.mozilla.org', x,y, { url: 'https://developer.mozilla.org/en-US' }); range(a,x1,y,80);
-y+=textHeight;
-doc.textWithLink('- stackoverflow', x,y, { url: 'https://stackoverflow.com' }); range(a,x1,y,80);
-y+=textHeight;
-doc.textWithLink('- tutorialspoint', x,y, { url: 'https://www.tutorialspoint.com' }); range(a,x1,y,50);
-y+=textHeight;
-doc.textWithLink('- webgl2fundamentals.org (3d reference)', x,y, { url: 'https://webgl2fundamentals.org'}); range(a,x1,y,70);
-y+=textHeight;
-doc.textWithLink('- android', x,y, { url: 'https://developer.android.com/'}); range(a,x1,y,70);
-y+=textHeight;
-doc.text('- Others', x,y); range(a,x1,y,50);
-y+=textHeight;
-
-y+=textHeight;
-doc.textWithLink('- github', x,y, {url:'https://github.com/miftahul001'});
-y+=textHeight;
-doc.textWithLink('- cv', x,y, {url:'https://miftahul001.github.io/project-fantasy/cv.html'});
-y+=textHeight;
-doc.textWithLink('- portfolio', x,y, {url:'https://github.com/miftahul001/portfolio/'});
-y+=textHeight;
-doc.textWithLink('- project-fantasy', x,y, {url:'https://miftahul001.github.io/project-fantasy/'});
-y+=textHeight;
-doc.textWithLink('- nameTag', x,y, {url:'https://miftahul001.github.io/project-fantasy/nameTag.html'});
-y+=textHeight;
-doc.textWithLink('- ethereum - web3 - metamask', x,y, {url:'https://munir-waveportal-starter-project.miftahul001.repl.co/'});
-y+=textHeight;
-doc.textWithLink('- ETH - solana - web3 - phantom', x,y, {url:'https://solana-starter-project.miftahul001.repl.co/'});
-y+=textHeight;
-doc.textWithLink('- linkedin', x,y, {url:'https://www.linkedin.com/in/miftahul-munir-1530888b'});
-y+=textHeight;
-doc.textWithLink('- twitter', x,y, {url:'https://twitter.com/MiftahulMunir0'});
-y+=textHeight;
-doc.textWithLink('- facebook', x,y, {url:'https://facebook.com/miftahul.munir.79025'});
-y+=textHeight;
-doc.textWithLink('- youtube', x,y, {url:'https://www.youtube.com/channel/UCZWOiZCEzXR70cfhPbmgqDw'});
-y+=textHeight;
-
-//console.log(doc.getTextDimensions('   (machine learning and artificial intelligence)'));
-//console.log(doc.getTextWidth(text));
-frame.src=doc.output('datauristring');//URL.createObjectURL(doc.output('blob'));
-
-/*
-(b => {
-	b.onload = () => {
-		//(img, sx, sy, swidth, sheight, x, y, width, height)
-		//console.log(b.width+'   '+b.height)
-		//a.drawImage(b, 0,0, b.width, b.height, 40,200,200,200)
-		//doc.addImage(c.canvas.toDataURL(), 'png', 10, 10, 500, 500);
-		//doc.addImage(c.canvas.toDataURL(), 'png', 10, 10, 500, 500);
-		//doc.addImage(c.canvas.toDataURL("image/jpeg"), 'JPEG', 40, 200, 200, 200);
-		doc.addImage(b, 'JPEG', 40, 73, 150, 150)
-		//frame.src=doc.output('datauristring')
-	}
-	b.src = 'foto1.jpeg'
-})(new Image())
-*/
-
-	}
-	b.src = 'foto1.jpeg'
-})(new Image())
-
-</script></body></html>
+<iframe style="flex:1 1 auto;margin:0;padding:0;"></iframe>
+</div>
+</body></html>
