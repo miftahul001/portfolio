@@ -20,9 +20,17 @@ https://miftahul001.github.io/selfie/
 
 https://miftahul001.github.io/FrontendHelper/
 
+https://miftahul001.github.io/project-fantasy/
+
+
 background changer
 https://miftahul001.github.io/project-fantasy/selfie.html
 
 https://miftahul001.github.io/portfolio/REST-API/
 
 https://github.com/miftahul001/portfolio/tree/main/serverjs
+
+
+https://munir-waveportal-starter-project.miftahul001.repl.co
+
+https://solana-starter-project.miftahul001.repl.co
