@@ -56,6 +56,11 @@ body > div {
 	padding: 1vh 0.5vw;
 }
 
+.slider-checkbox {
+	width: 0;
+	height: 0;
+	opacity: 0;
+}
 
 #card1, #card2, #card3, #card4, #card5, #card6 {
 	height: 43.5vh;
@@ -75,6 +80,72 @@ body > div {
 }
 #card3, #card6 {
 	width: 30%;
+}
+#card1 > div:nth-child(2) {
+	position: fixed;
+	height: 3vh;
+	margin-top: -3.5vh;
+	display: flex;
+	gap: 0.3vw;
+	padding: 0.5vh;
+}
+#card1 > div:nth-child(2) > div:nth-child(even) {
+	font-size: 1.5vh;
+	margin-right: 1vw;
+}
+#card1 > div:nth-child(2) > div:nth-child(odd) {
+	border-radius: 5px;
+	width: 2vh;
+}
+#card1 > div:nth-child(2) > div:nth-child(1) { background: #999A9E; }
+#card1 > div:nth-child(2) > div:nth-child(3) { background: #D3AF3D; }
+#card1 > div:nth-child(2) > div:nth-child(5) { background: #D9D9D9; }
+#card1 > div:nth-child(2) > div:nth-child(7) { background: #B28E65; }
+
+#card1 > div:nth-child(3) {
+	position: absolute;
+	width: 43vw;
+	margin-top:-41vh;
+	text-align: right;
+}
+
+#slider1 {
+	position: absolute;
+	margin-top: -27vh;
+	margin-left: 24vw;
+}
+#slider1 > input:checked ~ .slider1:before {
+	content: 'Monthly';
+	-webkit-transform: translateX(100%);
+	-ms-transform: translateX(100%);
+	transform: translateX(100%);
+}
+.slider1 {
+	background: #ccc;
+	border-radius: 7px;
+	cursor: pointer;
+	font-size: 1.3vmin;
+	font-weight: bold;
+	padding: 0.1vmin 0.7vmin;
+	display: flex;
+	gap: 1.3vmin;
+	position: absolute;
+	margin-top: -2.5vmin;
+	margin-left: -6.5vmin;
+}
+.slider1:before {
+	background: rgb(55,189,187);
+	border-radius: 7px;
+	color: white;
+	content:'Weekly';
+	cursor:pointer;
+	font-size: 1.3vmin;
+	font-weight: bold;
+	padding: 0.1vmin 0.7vmin;
+	position:absolute;
+	margin-left: -0.5vmin;
+	-webkit-transition: .4s;
+	transition: .4s;
 }
 
 .sla-tabel {
@@ -115,22 +186,29 @@ body > div {
 	width: 97%;
 	height: 97%;
 	margin: auto;
-	padding:1vh 1vw;
+	padding:1vh 1vw 1vh 0.3vw;
 	display: grid;
 	grid-template-columns: auto repeat(6,1fr);
 	gap: 1px;
 }
 #card4 > div > div {
 	font-size: 2vh;
-	padding:0.5vh 0.5vw;
+	padding:0.3vh 0.3vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 }
 #card4 > div > div > div {
-	background: #477F9F;
-	border-radius: 5px;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 7px;
+	padding:0.5vh 0.5vw;
+}
+#card4 > div > div > div > div {
+	background: rgba(71, 127, 159, 1); /*#477F9F;*/
+	border-radius: 7px;
+	/*box-shadow: rgba(71, 127, 159, 0.17) 0px -23px 25px 0px inset, rgba(71, 127, 159, 0.15) 0px -36px 30px 0px inset, rgba(71, 127, 159, 0.1) 0px -79px 40px 0px inset, rgba(71, 127, 159, 0.09) 3px 3px 5px 1px, rgba(71, 127, 159, 0.09) 3px 3px 7px 3px, rgba(71, 127, 159, 0.09) 3px 3px 9px 5px;*/
+	box-shadow: rgba(71, 127, 159, 0.17) 0px -23px 25px 0px inset, rgba(71, 127, 159, 0.15) 0px -36px 30px 0px inset, rgba(71, 127, 159, 0.1) 0px -79px 40px 0px inset, rgba(71, 127, 159, 0.09) 3px 3px 5px 1px, rgba(71, 127, 159, 0.09) 3px 3px 7px 3px, rgba(71, 127, 159, 0.09) 3px 3px 9px 5px;
 	color: white;
 	display: flex;
 	align-items: center;
