@@ -1,6 +1,8 @@
 # portfolio
 
 
+https://miftahul001.github.io/portfolio/cv.pdf
+
 https://miftahul001.github.io/portfolio/cv/
 
 https://miftahul001.github.io/portfolio/dialog-popup/
