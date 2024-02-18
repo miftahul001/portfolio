@@ -1,7 +1,7 @@
 const video = el({a:'video'})
 const ctx = el({a:'canvas'}).getContext('2d')
 var stream
-var fnameCnt = 0
+var fnameCnt = 1
 var fileName
 
 const startCamera1 = a => {
