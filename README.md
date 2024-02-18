@@ -25,7 +25,7 @@ https://miftahul001.github.io/FrontendHelper/
 
 https://miftahul001.github.io/project-fantasy/
 
-https://miftahul001.github.io/web-Afiliasi/
+https://miftahul001.github.io/portfolio/web-Afiliasi/
 
 ==========
 
