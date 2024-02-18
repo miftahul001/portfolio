@@ -1,0 +1,18 @@
+@font-face {
+	font-family: ubuntu;
+	src: url(ubuntu-regular-webfont.woff2);
+}
+@font-face {
+	font-family: ubuntuBold;
+	src: url(ubuntu-bold-webfont.woff2);
+}
+* {
+	font-family: ubuntu;
+	font-size: 2.1vmin;
+	box-sizing: border-box;
+	margin: 1vmin;
+	padding: 1vmin;
+}
+body {
+	padding: 0;
+}
