@@ -1,4 +1,4 @@
 # Website     Afiliasi
 
 
-⛑  stalled   ⛏
+😥  stalled   ⛏
