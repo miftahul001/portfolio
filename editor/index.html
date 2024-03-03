@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Editor">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<meta name="author" content="Miftahul Munir">
+<title>Editor</title>
+<link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+<link href="lib/codemirror.css" rel="stylesheet">
+<script src="lib/codemirror.js"></script>
+<script src="lib/xml.js"></script>
+<script src="lib/css.js"></script>
+<script src="lib/javascript.js"></script>
+<script src="lib/htmlmixed.js"></script>
+<script src="https://miftahul001.github.io/m/m.js"></script>
+<style>
+* {
+	font-size: 12px;
+	box-sizing: border-box;
+}
+iframe {
+	border: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+}
+.CodeMirror { height: auto; flex: 1 1 auto; }
+.pop1 {
+	background: rgba(255, 255, 255, 0.7);
+	border-radius: 9px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 7px 3px;
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+	left: 35vw;
+	top: 11vh;
+	position: fixed;
+	padding: 7px 11px 11px;
+}
+.pop1 > div:nth-child(1) {
+	background:rgba(233,237,237,0.9);
+	border-radius:7px;
+	box-shadow: inset 5px 5px 15px rgba(191,201,203,0.9), inset -5px -5px 15px rgba(191,201,203,0.9);
+	cursor: grab;
+	display: flex;
+	padding: 9px 15px;
+}
+.pop1 > div:nth-child(1) > div {
+	color:rgba(17,123,101,0.9);
+	font-size: 17px;
+	font-weight: bold;
+	text-shadow: 0 0 1px #154359;
+}
+.pop1 > div:nth-child(1) > div:nth-child(1) {
+	cursor: default;
+}
+.pop1 > div:nth-child(1) > div:nth-child(2) {
+	flex: 1 1 auto;
+	padding: 0 15px;
+	text-align: center;
+}
+.pop1 > div:nth-child(2) {
+	background: rgba(255,255,255,0.7);
+	display: flex;
+	flex-direction: column;
+}
+.pop1 > div:nth-child(2).hide { display: none; }
+.pop1 > div:nth-child(2) > div:nth-child(1) {
+	display: flex;
+	padding: 3px 5px;
+}
+.pop1 > div:nth-child(2) > div:nth-child(1) > div {
+	border-radius: 5px;
+	box-shadow: inset 3px 3px 11px rgba(191,201,203,0.9), inset -3px -3px 11px rgba(191,201,203,0.9);
+	cursor: default;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 5px 11px;
+}
+.pop1 > div:nth-child(2) > div:nth-child(1) > div:hover {
+	background: rgba(233,237,239,0.7);
+}
+.pop1 > div:nth-child(2) > div:nth-child(2) {
+	border: 1px solid #c0c0c0;
+	border-radius: 5px;
+	min-height: 200px;
+	min-width: 300px;
+	max-height: 80vh;
+	max-width: 90vw;
+	overflow: scroll;
+	padding: 5px;
+	resize: both;
+}
+</style>
+<script>
+const a = [dlg,document,el,window,'','addEventListener','body','children','classList','className','CodeMirror','div','Editor','fromTextArea','getValue','hide','iframe','load','parentElement','pop1','querySelector','removeChild','Run','splice','srcdoc','style','target','textContent','textarea','toggle','value', '▾', '▸', {lineNumbers: true, mode: 'htmlmixed', },
+`<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Web page">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<meta name="author" content="Miftahul Munir">
+<title>page</title>
+<script src="https://miftahul001.github.io/m/m.js"><\/script>
+</head><body>
+	<h1>Hello Word!</h1>
+<script>
+	const a = el({a:'div', b:document.body})
+	el({
+		a:'button',
+		b:a,
+		c:'How are you',
+		e: {
+			click: a => { alert('Okay') }
+			}
+	})
+<\/script>
+</body></html>`
+];a[3][a[5]](a[17], () => {a[a[23]](3,1, a[2]({a:a[16], b:a[1][a[6]]}));a[a[23]](0,1,a[0]({title:a[10]})[a[18]]);a[0][a[25]] = a[4];a[0][a[9]] = a[19]
+a[0][a[7]][0][a[25]] = a[4];a[0][a[7]][0][a[27]] = a[4];a[2]({a:a[11], b:a[0][a[7]][0], c:a[31], e:{click: b => {b[a[9]][a[10]] = b[a[9]][a[10]] == a[14] ? a[15] : a[14];a[0][a[3]][1][a[4]][a[12]](a[6])} }})
+a[2]({a:a[11], b:a[0][a[7]][0], c:a[12]});a[0][a[21]](a[0][a[7]][1]);a[0][a[7]][1][a[25]] = a[4];a[2]({a:a[11], b:a[2]({a:a[11], b:a[0][a[7]][1]}), c:a[22], e:{click: () => { a[2][a[7]] = a[1][a[5]]() }} })
+a[2]({a:a[28], b:a[2]({a:a[11], b:a[0][a[7]][1]}) })[a[30]] = a[34];a[1] = CodeMirror[a[13]](a[1][a[20]](a[28]), a[33])
+a[2]({a:'a', b:a[0][a[7]][1], c:'powered by CodeMirror', d:{href:'https://codemirror.net/', style:'text-align:right;padding:0 21px;'}})
+a[a[23]](2,5,a[3]);a[a[19]](5,5);a[a[14]](7,8)})
+</script></head><body></body></html>
