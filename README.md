@@ -7,6 +7,8 @@ https://miftahul001.github.io/portfolio/cv/
 
 https://miftahul001.github.io/portfolio/dialog-popup/
 
+https://miftahul001.github.io/portfolio/editor/
+
 https://miftahul001.github.io/portfolio/portal/
 
 https://miftahul001.github.io/portfolio/tabel/tabel.html
