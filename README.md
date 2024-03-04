@@ -1,7 +1,7 @@
 # portfolio
 
 
-<a href="[http://example.com/](https://miftahul001.github.io/portfolio/cv.pdf)" target="_blank">cv.pdf</a>
+<a href="https://miftahul001.github.io/portfolio/cv.pdf" target="_blank">cv.pdf</a>
 
 [cv.pdf](https://miftahul001.github.io/portfolio/cv.pdf){:target="_blank"}
 
