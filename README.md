@@ -1,6 +1,8 @@
 # portfolio
 
 
+<a href="[http://example.com/](https://miftahul001.github.io/portfolio/cv.pdf)" target="_blank">cv.pdf</a>
+
 [cv.pdf](https://miftahul001.github.io/portfolio/cv.pdf){:target="_blank"}
 
 [render cv pdf using pdf.js](https://miftahul001.github.io/portfolio/cv/){:target="_blank"}
