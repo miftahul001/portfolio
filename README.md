@@ -1,53 +1,48 @@
 # portfolio
 
 
-https://miftahul001.github.io/portfolio/cv.pdf
+[cv.pdf](https://miftahul001.github.io/portfolio/cv.pdf){:target="_blank"}
 
-https://miftahul001.github.io/portfolio/cv/
+[render cv pdf using pdf.js](https://miftahul001.github.io/portfolio/cv/){:target="_blank"}
 
-https://miftahul001.github.io/portfolio/dialog-popup/
+[dynamic popup](https://miftahul001.github.io/portfolio/dialog-popup/){:target="_blank"}
 
-https://miftahul001.github.io/portfolio/editor/
+[HTML editor](https://miftahul001.github.io/portfolio/editor/){:target="_blank"}
 
-https://miftahul001.github.io/portfolio/portal/
+[portal - project stalled](https://miftahul001.github.io/portfolio/portal/){:target="_blank"}
 
-https://miftahul001.github.io/portfolio/tabel/tabel.html
+[tabel, part of mobile alert project](https://miftahul001.github.io/portfolio/tabel/tabel.html){:target="_blank"}
 
-https://miftahul001.github.io/portfolio/tera/
+[Always On, offline version](https://miftahul001.github.io/portfolio/tera/)
 
-https://miftahul001.github.io/portfolio/sheet/
+[use sheet.js](https://miftahul001.github.io/portfolio/sheet/){:target="_blank"}
 
-https://miftahul001.github.io/portfolio/qosmo/
+[first mockup qosmo](https://miftahul001.github.io/portfolio/qosmo/){:target="_blank"}
 
-https://miftahul001.github.io/portfolio/qosmo2/
+[first mockup qosmo2](https://miftahul001.github.io/portfolio/qosmo2/){:target="_blank"}
 
-https://miftahul001.github.io/selfie/
+[first mockup selfie pro](https://miftahul001.github.io/selfie/){:target="_blank"}
 
-https://miftahul001.github.io/FrontendHelper/
+[WYSIWYG HTML editor](https://miftahul001.github.io/FrontendHelper/){:target="_blank"}
 
-https://miftahul001.github.io/project-fantasy/
+[fantasy - project stalled](https://miftahul001.github.io/project-fantasy/){:target="_blank"}
 
-https://miftahul001.github.io/portfolio/web-Afiliasi/
+[web-Afiliasi - project stalled](https://miftahul001.github.io/portfolio/web-Afiliasi/){:target="_blank"}
 
-https://miftahul001.github.io/portfolio/warung/
+[warung - project satlled](https://miftahul001.github.io/portfolio/warung/){:target="_blank"}
 
-https://miftahul001.github.io/portfolio/camera/
+[web camera](https://miftahul001.github.io/portfolio/camera/){:target="_blank"}
 
 ==========
 
 
-background changer
-https://miftahul001.github.io/project-fantasy/selfie.html
+[background changer](https://miftahul001.github.io/project-fantasy/selfie.html){:target="_blank"}
 
-DOM manipulation and dynamic popup library
-[m.js](https://github.com/miftahul001/m)
+[DOM manipulation and dynamic popup library](https://github.com/miftahul001/m){:target="_blank"}
 
+[Native PHP - REST API](https://miftahul001.github.io/portfolio/REST-API/){:target="_blank"}
 
-Native PHP - REST API
-https://miftahul001.github.io/portfolio/REST-API/
-
-Native JavaScript webserver, support GET, POST and websocket
-https://github.com/miftahul001/portfolio/tree/main/serverjs
+[Native JavaScript webserver, support GET, POST and websocket](https://github.com/miftahul001/portfolio/tree/main/serverjs){:target="_blank"}
 
 
 ==========
