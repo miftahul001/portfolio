@@ -1,5 +1,9 @@
 # portfolio
 
+I need a remote job
+
+I want to be able to live life with my family
+
 hire me miftahulmunir001@gmail.com
 
 <a href="https://miftahul001.github.io/portfolio/cv.pdf" target="_blank">cv.pdf</a>
