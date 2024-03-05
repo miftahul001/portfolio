@@ -1,5 +1,6 @@
 # portfolio
 
+hire me miftahulmunir001@gmail.com
 
 <a href="https://miftahul001.github.io/portfolio/cv.pdf" target="_blank">cv.pdf</a>
 
