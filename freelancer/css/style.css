@@ -1,0 +1,32 @@
+* {
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+}
+
+body {
+	color: #3B3F45;
+	font-size: 1rem;
+	font-weight: 300;
+	line-height: 1.5;
+}
+
+#main-header {
+	background: rgba(255,255,255,.1);
+	box-shadow: 0 10px 6px -6px rgba(0,0,0,.3);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 120px;
+	transition: background-color .2s ease-in-out,margin-top .2s ease-in-out;
+}
+
+#main-header.container {
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+}
+
+#main {
+	
+}
