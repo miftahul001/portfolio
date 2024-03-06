@@ -8,6 +8,8 @@ body {
 	font-size: 1rem;
 	font-weight: 300;
 	line-height: 1.5;
+	margin: 0;
+	padding: 0;
 }
 
 #main-header {
@@ -19,14 +21,58 @@ body {
 	width: 100vw;
 	height: 120px;
 	transition: background-color .2s ease-in-out,margin-top .2s ease-in-out;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 7vw;
 }
 
-#main-header.container {
+#main-header > a > img {
+	width: 90px;
+	height: 90px;
+}
+
+#main-header > div {
 	display: flex;
-	align-items: stretch;
-	justify-content: space-between;
+	align-items: center;
+	justify-content: space-around;
+	gap: 5vw;
+}
+
+#main-header > div > div {
+	color: white;
+	cursor: pointer;
+}
+#main-header > div > div:hover {
+	text-decoration: underline;
 }
 
 #main {
 	
+}
+
+#main .hero-banner {
+	background-image: url('../img/img1.webp');
+	min-height: 580px;
+	padding: 60px 0;
+	margin-bottom: 0;
+}
+
+#main .ct1 {
+	color: white;
+	padding: 0 7vw;
+	position: absolute;
+	top: 30%;
+}
+#main .ct1 > div:nth-child(1) {
+	font-family: times new roman, serif;
+	font-size: 5vmin;
+	padding: 5vmin 0;
+}
+#main .ct1 > p:nth-child(4) {
+	font-weight: bold;
+}
+#main .ct1 > div:last-child {
+	margin-top: 70px;
+	text-align: center;
 }
