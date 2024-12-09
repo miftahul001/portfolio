@@ -8,11 +8,13 @@ hire me miftahulmunir001@gmail.com
 
 <a href="https://miftahul001.github.io/portfolio/cv.pdf" target="_blank">cv.pdf</a>
 
-[cv.pdf](https://miftahul001.github.io/portfolio/cv.pdf){:target="_blank"}
+[cv.pdf](https://miftahul001.github.io/portfolio/cv.pdf)
 
-[render cv pdf using pdf.js](https://miftahul001.github.io/portfolio/cv/){:target="_blank"}
+[render cv pdf using pdf.js](https://miftahul001.github.io/portfolio/cv/)
 
-[dynamic popup](https://miftahul001.github.io/portfolio/dialog-popup/){:target="_blank"}
+[dynamic popup](https://miftahul001.github.io/portfolio/dialog-popup/)
+
+[Moveable Element](https://miftahul001.github.io/portfolio/movable-element.html)
 
 [HTML editor](https://miftahul001.github.io/portfolio/editor/){:target="_blank"}
 
