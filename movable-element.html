@@ -1,0 +1,58 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Web page">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<meta name="author" content="Miftahul Munir">
+<title>page</title>
+
+<!-- add this script -->
+<script src="https://miftahul001.github.io/m/m.js"></script>
+<!-- or -->
+<!-- <script src="https://cdn.jsdelivr.net/gh/miftahul001/m/m.js"></script> -->
+
+<style>
+.element {
+	color: white;
+	position: absolute;
+	margin: 0;
+	width: 200px;
+	height: 100px;
+}
+
+#element1 { background: red; }
+#element2 { background: yellow; }
+#element3 { background: white; width:600px; height: 500px; overflow: auto; resize: both; }
+</style>
+
+</head><body>
+	<h1>Movable Element</h1>
+	
+	<div id="element1" class="element" style="top:10px; left:10px;">element - 1</div>
+	<div id="element2" class="element" style="top:20px; left:20px;">element - 2</div>
+	
+	<div id="element3" class="element" style="top:30px; left:30px; border:1px solid black;">
+	
+		<div id="element31" class="element" style="top:10px; left:10px; border:1px solid black;">
+			<div style="background:green; height:20px;">element - 3 - 1</div>
+			<div style="background:white; height:80px;"></div>
+		</div>
+		
+		<div id="element32" class="element" style="top:20px; left:20px; border:1px solid black;">
+			<div style="background:blue; height:20px;">element - 3 - 2</div>
+			<div style="background:white; height:80px;"></div>
+		</div>
+	
+	</div>
+
+<script>
+
+mmv1(document.getElementById('element1'))
+mmv1(document.getElementById('element2'))
+
+mmv1(document.getElementById('element3'))
+mmv1(document.getElementById('element31'))
+mmv1(document.getElementById('element32'))
+
+</script>
+</body></html>
