@@ -1,6 +1,6 @@
 /* mdatepicker.js
   * https://miftahul001.github.io/portfolio/mdatepicker.js
-  * Copyright (c) 2022 Miftahul Munir; Licensed MIT
+  * Copyright (c) 2024 Miftahul Munir; Licensed MIT
   */
 
 const mShowPicker = a => {
