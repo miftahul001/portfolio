@@ -1,0 +1,111 @@
+<!DOCTYPE html><html><head>
+	<meta charset="utf-8">
+	<title></title>
+<link href='https://fonts.googleapis.com/css?family=Chela One&effect=fire|neon|outline|emboss|shadow-multiple' rel='stylesheet'>
+<style>
+body{
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+    font-family: 'Chela One';
+	
+	/*background: linear-gradient( 45deg, #999 10%, #fff 25%, #bbb 40%, #ddd 50%, #bbb 60%, #fff 75%, #999 90% );*/
+	/*background-size: 200% 100%;*/
+	/*animation: bggradient 5s linear infinite;*/
+}
+@keyframes bggradient {
+	0% { background-position: 0% 0%; }
+	100% { background-position: 100% 0%; }
+}
+.bg1 {
+	background: linear-gradient( 45deg, #9f9e9d 0%, #bbb 20%, #9f9e9d 40%, #bbb 60%, #9f9e9d 80%, #bbb 100% );
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 200vw;
+	animation: kbg1 5s linear infinite;
+	z-index: -1;
+}
+@keyframes kbg1 {
+	0% { left: 0; }
+	100% { left: -100vw; }
+}
+.engraved {
+	font-size: 11vw;
+	/*font-family: Futura;*/
+	background-color: #999;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: rgba(245,245,245,0.5) 5px 7px 2px;
+	text-align: center;
+}
+
+.embossed {
+	color: #f0f0f0;
+	font-size: 10vw;
+	background-color: #666666;
+	text-shadow: 1px 4px 4px #555;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+}
+
+.embossed1 {
+	font-size: 100px;
+	color: rgba(255,255,255,0.4);
+	text-shadow: 1px 2px 3px #eee, 0 0 0 #000, 1px 2px 3px #eee;
+}
+
+.embossed2 > div {
+	background: linear-gradient(#939597, #f1f1f1, #939597);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+    color: transparent;
+	position: absolute;
+}
+.embossed2 > div:nth-child(1) {
+	text-shadow: 0 0 5px #101010, 0 0 2px #ffffff, 0 0 7px #f1d1b1, 0 0 9px #515151, 0 0 15px #f9f9f9;
+}
+
+</style>
+
+</head><body>
+	<div class="bg1"></div>
+	<div style="z-index:2;">
+		
+		<div class="embossed2" style="position:fixed; left:10vw; top:10vh;">
+			<div style="font-size:90vw;">25</div>
+			<div style="font-size:90vw;">25</div>
+		</div>
+		<div class="embossed2" style="position:fixed; left:13vw; top:58vh;">
+			<div style="font-size:7vw; white-space:nowrap;">2000 - 2025</div>
+			<div style="font-size:7vw; white-space:nowrap;">2000 - 2025</div>
+		</div>
+		<div class="embossed2" style="position:fixed; top:59vh; left:70vw; transform: rotate(-45deg);">
+			<div style="font-size:11vw; letter-spacing: 0.5vw;">tahun</div>
+			<div style="font-size:11vw; letter-spacing: 0.5vw;">tahun</div>
+		</div>
+		
+		<div class="embossed" style="height:3vh;"></div>
+		<div class="embossed" style="text-align:center;">Reuni Perak</div>
+		<div class="embossed" style="text-align:center; margin-top:-2vh;">ANGKATAN <span style="font-size:13vw;">1997</span></div>
+		<div class="embossed" style="text-align:center; font-size:7vw;">ALUMNI 2000 SMAN 3 JOMBANG</div>
+		
+		<!--
+		<p class="embossed1">Embossed</p>
+		<div class="embossed2">
+			<div>Embossed</div>
+			<div>Embossed</div>
+		</div>
+		-->
+		<div style="position:fixed; top:75vh; width:100vw;">
+			<div class="engraved" style="font-size:11vw;">Teman Sejati</div>
+			<div class="engraved" style="font-size:11vw;">Berjuta Memori</div>
+			<div class="engraved" style="font-size:11vw;">Terukir Abadi</div>
+		</div>
+	</div>
+</body></html>
