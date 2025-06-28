@@ -1,0 +1,283 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Qosmo" content="Qosmo" />
+<title>Core to Internet</title>
+<link rel="icon" href="../favicon.svg" sizes="any" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Special+Gothic+Condensed+One" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://miftahul001.github.io/m/m.js"></script>
+<style>
+*{
+	font-family: 'Barlow Condensed';
+	box-sizing: border-box;
+}
+.line-1 {
+	fill: none;
+	stroke: #5788FE;
+	stroke-width: 5;
+}
+.line-1.degrade-1 { stroke: red; }
+.line-1:hover { stroke-width: 7; }
+.line-2 {
+	fill: none;
+	stroke: #93fba3;
+	stroke-dasharray: 20 30;
+	stroke-opacity: 0.7;
+	stroke-width: 2;
+}
+.line-2.anim-1 { animation: kf-line-2 3s linear infinite; }
+@keyframes kf-line-2 {
+	from { stroke-dashoffset: 100; }
+	to { stroke-dashoffset: -100; }
+}
+.circle-1 {
+	border-radius: 50%;
+	fill: #319b37;
+	fill-opacity: 1;
+	stroke: rgba(147,251,163,0.7);
+	stroke-width: 2vmin;
+}
+.circle-1.degrade-1 {
+	fill: red;
+	stroke: rgba(251,147,163,0.7);
+}
+.circle-1.anim-1 { animation: kf-ripple-1 2s infinite; }
+@keyframes kf-ripple-1 {
+	from {
+		outline: 2vmin double rgba(147,251,163,1);
+		outline-offset: 0;
+	}
+	to {
+		outline: 0.5vmin double rgba(147,251,163,0.3);
+		outline-offset: 2.5vmin;
+	}
+}
+.circle-1.anim-1.degrade-1 { animation: kf-ripple-2 2s infinite; }
+@keyframes kf-ripple-2 {
+	from {
+		outline: 2vmin double rgba(251,147,163,1);
+		outline-offset: 0;
+	}
+	to {
+		outline: 0.5vmin double rgba(251,147,163,0.3);
+		outline-offset: 2.5vmin;
+	}
+}
+</style>
+<script>
+addEventListener('load', a => {
+const m={
+	data: {},
+	nodes: {},
+	lines: [],
+	popup: el({a:'div', d:{style:'align-items:center; background:rgba(255,255,255,0.7); border-radius:1vmin; box-shadow:0 0 2vmin 0.5vmin rgba(0,0,0,0.1); display:grid; gap:1vmin; grid-template-columns:repeat(4,auto); padding:1.5vmin; position:fixed;'} }),
+	cp: ((a,b) => ([ L.marker( [0,110], { draggable:true, icon:b } ).on('dragend', a ), L.marker( [0,110], { draggable:true, icon:b } ).on('dragend', a ) ]))(a=>{ a = a.target.options.idx; m.lines[a].p3 = m.cp[0].getLatLng(); m.lines[a].p4 = m.cp[1].getLatLng(); m.drawLine({a:a}) }, L.icon({iconUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACHElEQVRIS7WVTUhUURTHm/I7FAQlRGkRKaGFSBIDQaI4tHIzLiQkMFJQDNrkwjZtok0ulIqiNi7EDzDa+YEtgpTS6AujaCGUgtKXgUQJMubvD3fk8nj3zZvFXPhx75x37vmfc9+Z+yIHMjwiacSvxXcMcuA9tIbZm47AFQLesYKG2hvKyQS9yjxoCWSxTqSqIoxAjCDX4RwctAL+Zj0Bt2DNJRQkcIhNQ9AL/2Edyq1Aq6yPwh+4BJN+IkECD9nQBW/gIjR53oESuAD3oBDa/ERcAnGcH8NLaIRtaIBpyDeip03GJ5hfgARPgirbHy6BZTyqoNK7we8YTPbjzA+gxyVwzAQ9wjwMS3AD3sI3R2CZVYH2joK6qh30zl7Bpl3BJoZin0DvsNU5BAoUBHJ9nj/FFrMFpOo3VjAedzwrwf7D8WwRe9QW+IpBbecdzzHoP+A3lPmGo/In2OO2wGEMZaB3MG9Qf0t4xyEgcxFUwAL8M8noNL5AwtVFarszcAo+WsGVcTb8hV3L3s36PgxAn52MS6AZpzn4AGdhC2SbMgKfmKtNICXyzIjK9j2MgHxuwzX4DB1QD/ZtmsfvTuOnqlpgxg6uddBVoWc3od/4/WRW1ySHuqcUfoF6f9YbPJVA0j/KQrfpedDHJjl0+Y2Azt3VqoEVeBPK+AdH1/ZdSzXMtyStCmoI/gh0PbyGy35n7rWFyiJMIJdPxgX2AB8AXRn6HpAUAAAAAElFTkSuQmCC', iconSize: [24, 24]}) ),
+	circle1: a => {
+		a.z = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+		[ ['xmlns', 'http://www.w3.org/2000/svg'], ['viewBox', '0 0 200 200'] ].forEach(b=>{ a.z.setAttribute(b[0],b[1]) })
+		a.z.innerHTML = `<circle r='50' cx='50%' cy='50%' class='circle-1' /><text x='50%' y='125' fill='white' font-size='70' font-weight='bold' text-anchor='middle'>${a.a}</text>`
+		return L.svgOverlay(a.z, a.b, {interactive:true}).on('click', a => {
+			console.log(a)
+		}).addTo(a.c)
+	},
+	circle2: a => {
+		a.z = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+		[ ['xmlns', 'http://www.w3.org/2000/svg'], ['viewBox', '0 0 159.3 159.3'] ].forEach(b=>{ a.z.setAttribute(b[0],b[1]) })
+		a.z.innerHTML = `<defs>
+		<radialGradient id="radialGradient-1" gradientUnits="userSpaceOnUse" cx="328.57" cy="602.72" r="147.14" gradientTransform="matrix(1 0 0 .17718 0 495.93)">
+			<stop style="stop-color:#9b9b31" offset="0"/>
+			<stop style="stop-color:#919113" offset="0"/>
+			<stop style="stop-color:#dfdf91;stop-opacity:0" offset="1"/>
+		</radialGradient>
+		<linearGradient id="linearGradient-1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.47131 0 0 .47131 -49.693 -237.91)" x1="175.72" y1="737.02" x2="470" y2="737.02">
+			<stop style="stop-color:#757913" offset="0"/>
+			<stop style="stop-color:#b5bf57" offset="1"/>
+		</linearGradient>
+		</defs>
+		<g>
+			<path style="fill:url(#radialGradient-1)" d="m475.71 602.72a147.14 26.071 0 1 1 -294.28 0 147.14 26.071 0 1 1 294.28 0z" transform="matrix(.59257 0 0 1.0459 -93.45 -491.64)"/>
+			<path style="fill:url(#linearGradient-1);stroke:#131313;" d="m33.141 74.279v0.294c0.007-0.097 0.021-0.197 0.03-0.294h-0.03zm138.62 0c0.04 0.33 0.06 0.668 0.06 1.001v-1.001h-0.06zm0.06 1.001c0 15.053-31.07 27.26-69.35 27.26-37.685 0-68.379-11.825-69.329-26.553v40.683c-0.015 0.23-0.014 0.45-0.014 0.69 0 0.22 0.001 0.45 0.014 0.68 0.912 14.74 31.619 26.6 69.329 26.6s68.41-11.86 69.32-26.6h0.03v-0.5-0.18-0.18-41.9z"/>
+			<path style="fill:#b5b971;stroke:#131313;" d="m475.71 602.72a147.14 26.071 0 1 1 -294.28 0 147.14 26.071 0 1 1 294.28 0z" transform="matrix(.47131 0 0 1.0459 -52.384 -552.99)"/>
+			<path style="fill-opacity:.71171;fill:#f2fdff" d="m136.74 60.822l-12.36 1.805-12.37 1.804 5.26 1.712-14.95 7.097 9.8 3.191 14.94-7.097 5.26 1.711 2.2-5.113 2.22-5.11z"/>
+			<path style="fill-opacity:.71171;fill:#f2fdff" d="m70.4 92.324l2.206-5.114 2.205-5.113 5.254 1.711 14.945-7.097 9.8 3.192-14.948 7.096 5.254 1.712-12.363 1.804-12.353 1.809z"/>
+			<path style="fill-opacity:.71171;fill:#f2fdff" d="m107.99 77.93l13 0.868 13 0.867-4.35 2.066 18.04 5.878-8.11 3.853-18.05-5.878-4.35 2.067-4.59-4.863-4.59-4.858z"/>
+			<path style="fill-opacity:.71171;fill:#f2fdff" d="m99.157 75.055l-4.589-4.862-4.589-4.863-4.351 2.067-18.046-5.878-8.114 3.853 18.046 5.878-4.352 2.066 13.003 0.867 12.992 0.872z"/>
+		</g>`
+		
+		return L.svgOverlay(a.z, a.b).addTo(a.c)
+	},
+	changeData: a => {
+		a = m.tipe//m.title.children[2].children[0].children[0].textContent.toLowerCase().split(' ')[0]
+		Object.keys(m.nodes).filter(a=>a!='BDS'&&a!='BTC'&&a!='PNK').forEach(b=>{
+			m.nodes[b]._image.children[0].classList.remove('degrade-1')
+			m.nodes[b]._image.children[1].textContent = m.lines.filter(a=>a.p2==b).reduce((b,c)=>Math.max(b,c.data.filter(c=>c.tipe==a).length),0)
+			const c = m.lines.filter(a=>a.p2==b).map(a=>a.data.filter(a=>a.tipe==m.tipe)).sort((a,b)=>b.length-a.length)
+			const d = c[0].reduce((a,b)=> (parseFloat(b.latency)>parseFloat(b.baseline)) || (a=>a?parseFloat(a.latency)>parseFloat(a.baseline):false)(c[1].find(a=>a.transit==b.transit)) || (a=>a?parseFloat(a.latency)>parseFloat(a.baseline):false)(c[2].find(a=>a.transit==b.transit)) ? ({normal:a.normal, degrade:a.degrade+1}) : ({normal:a.normal+1, degrade:a.degrade}), {normal:0, degrade:0})
+			m.tabelRegion.children[m.regionIndex[b]+11].textContent = `Normal: ${d.normal}`
+			m.tabelRegion.children[m.regionIndex[b]+22].children[1].textContent = `${d.degrade}`
+			m.tabelRegion.children[m.regionIndex[b]+22].children[1].style.color = d.degrade > 0 ? 'red' : '#71b9de'
+			m.nodes[b].bringToFront()
+		})
+		m.nodes.BDS.bringToFront()
+		m.nodes.BTC.bringToFront()
+		m.nodes.PNK.bringToFront()
+		m.lines.forEach(a => {
+			if (a.data.find(a=>a.tipe==m.tipe&&parseFloat(a.latency)>parseFloat(a.baseline))) {
+				!a.l1._path.classList.contains('degrade-1') && a.l1._path.classList.add('degrade-1')
+				!m.nodes[a.p2]._image.children[0].classList.contains('degrade-1') && m.nodes[a.p2]._image.children[0].classList.add('degrade-1')
+			} else a.l1._path.classList.contains('degrade-1') && a.l1._path.classList.remove('degrade-1')
+		})
+	},
+	init:a =>{
+		el({a:'div', b:document.body, d:{style:'background:#ffffff; color:#717171; cursor:default; font-size:2.1vmin; position:fixed; top:0; left:0; width:100vw; height:9vh; padding:0 2.7vw; display:flex; align-items:center; gap:2.5vw;'} }).innerHTML =
+		`<div style="color:#5788FE; font-size:3vmin; font-weight:bold; letter-spacing: 0.5vmin; padding:1vmin;">QOSMO</div>
+		<a href="?page=executive">Executive Summary</a>
+		<a href="?page=mondaymonitoring">Monday Monitoring</a>
+		<a href="?page=home">Home</a>
+		<a href="?page=sla">SLA</a>
+		<a href="?page=cdn">CDN Performance</a>
+		<a href="?page=core">Core Performance</a>
+		<a href="?page=access">Access Performance</a>
+		<a href="?ticket_quality">Ticket Quality</a>
+		<a href="?page=order">Order</a>`
+		//m.map= L.map(m.div, {center:[-4, 118], zoom:5.3, zoomSnap:.01, /*preferCanvas:true,*/ zoomControl:false })
+		a = el({a:'div', b:a, d:{style:'background:#f0f1f7; display:flex; flex-direction:column; width:100vw; height:91vh; position:fixed; top:9vh;'} })
+		m.title = el({a:'div', b:a, d:{style:'height:11.5vh; padding:1.5vh 0 0 0;'} })
+		el({a:'div', b:m.title, c:'Core to Internet (EBR to IGW) Monitoring', d:{style:'color:#336fb7; font-family:"Special Gothic Condensed One"; font-size:5vmin; font-weight:bold; letter-spacing:0.15vmin; text-align:center; text-shadow:0.1vmin 0.1vmin 0.1vmin rgba(255,255,255,0.9), 0.15vmin 0.15vmin 0.3vmin rgba(0,0,0,0.9);'} });
+		(a => { el({a:'div', b:m.title, c:`${a.getDate().toString().padStart(2,'0')} ${m.namaBulan[a.getMonth()]} ${a.getFullYear()} \xa0-\xa0 ${a.getHours().toString().padStart(2,'0')}:00 Wib`, d:{style:'color:#336fb7; font-family:"Special Gothic Condensed One"; font-size:3vmin; font-weight:bold; padding:0; text-align:center; text-shadow:0 0 0.15vmin rgba(0,0,0,0.3);'} })
+		})(new Date());
+		
+		(a => {
+			(a=> {
+				el({a:'div', b:a, c:'EBR', d:{style:'color:white;'} })
+				el({a:'i', b:a, d:{class:'fa fa-caret-down', style:'color:white; font-size:3vmin;'} })
+			})(el({a:'div', b:a, d:{style:'align-items:center; background:#2e5f7f; border-radius:0.5vmin; cursor:pointer; display:flex; font-size:1.75vmin; font-weight:bold; justify-content:space-between; padding:0.1vmin 1vmin; width:7vw;'} }));
+			(a => {
+				const b = {click: a => {
+					document.getElementById('dd1').children[1].style.display = 'none'
+					if (document.getElementById('dd1').children[0].children[0].textContent == a.target.textContent) return
+					document.getElementById('dd1').children[0].children[0].textContent = a.target.textContent
+					m.tipe = a.target.textContent.toLowerCase().split(' ')[0]
+					m.changeData()
+				}}
+				el({a:'div', b:a, c:'EBR', d:{style:'cursor:pointer; margin-bottom:0.1vmin; padding:0.3vmin;'}, e:b })
+				el({a:'div', b:a, c:'PE Transit', d:{style:'cursor:pointer; padding:0.3vmin;'}, e:b })
+			})(el({a:'div', b:a, d:{style:'border-radius:0 0 1vmin 1vmin; box-shadow:0 0 1vmin 0.5vmin rgba(0,0,0,0.1); display:none; margin-top:0.3vmin; padding:0.5vmin 1vmin;'}, e:{click:a=>{a.stopPropagation()}} }))
+		})(el({a:'div', b:m.title, d:{id:'dd1', style:'position:absolute; right:9vw; top:4vh; z-index:1000;'}, e:{
+			click:a=>{ document.getElementById('dd1').children[1].style.display = 'block' },
+			mouseleave:a=>{ document.getElementById('dd1').children[1].style.display = 'none' },
+		} }));
+		
+		(a => {
+			el({a:'span', b:a, c:'Animation'})
+			el({a:'input', b:a, d:{type:'checkbox', id:'anim-1'}, e:{click:a=>{
+				Object.keys(m.nodes).filter(a=>a!='BDS'&&a!='BTC'&&a!='PNK').forEach(b=>{
+					m.nodes[b]._image.children[0].classList.toggle('anim-1')
+				})
+				m.lines.forEach(a => { a.l2._path.classList.toggle('anim-1') })
+			}} })
+		})(el({a:'label', b:m.title, d:{style:'align-items:center; background:#2e5f7f; border-radius:0.5vmin; color:white; cursor:pointer; display:flex; font-size:1.75vmin; font-weight:bold; gap:1vmin; padding:0.55vmin 1vmin; position:absolute; right:3vw; top:4vh; z-index:1000;'} }));
+		
+		m.map = L.map(el({a:'div', b:a, d:{style:'background:rgba(0,0,0,0); height:70vh;'} }), {center:[-3.25, 118], preferCanvas:false, zoom:5.7, zoomSnap:0.001, zoomControl:false })
+		m.map.attributionControl.setPrefix('')
+		m.map.on('click', a=>{
+			m.cp[0].remove()
+			m.cp[1].remove()
+		});
+		
+		(a => { m.screenSize.x = a.x; m.screenSize.y = a.y })(m.map._container.getBoundingClientRect())
+		
+		//m.initData()
+		fetch('provinsi.json').then(a=>a.json()).then(a=>{
+			L.geoJSON(a, { style: a => ({color: '#b1b1b1', weight:1}), }).addTo(m.map)
+		})
+		
+		//set coordinates
+		fetch('data.json').then(a=>a.json()).then(a=> {
+			a.igw.forEach(a=>{ m.nodes[a.nama] = m.circle2({a:'0', b:a.bounds, c:m.map}) })
+			a.region.forEach(a=>{ m.nodes[a.nama] = m.circle1({a:'0', b:a.bounds, c:m.map}) })
+			a.lines.forEach(a=>{ m.lines.push(a); m.drawLine({ a:m.lines.length-1, b:m.map }) })
+			m.changeData()
+		})
+		
+		m.tabelRegion = el({a:'div', b:a, d:{style:'background:#08205b; color:#71b9de; display:grid; grid-template-columns:repeat(11,1fr); margin:0 5vw; padding:1.5vh 1.5vw; width:90vw;'} });
+		[ 'Sumbagut', 'Sumbagteng', 'Sumbagsel', 'Jabo', 'Jabar', 'Jateng', 'Jatim', 'Balnus', 'Kalimantan', 'Sulawesi', 'Puma' ].forEach(b => {el({a:'div', b:m.tabelRegion, c:b})} );
+		[...Array(11).keys()].forEach(a => { el({a:'div', b:m.tabelRegion, c:'Normal: 0'}) });
+		[...Array(11).keys()].forEach(a => {
+			a = el({a:'div', b:m.tabelRegion, d:{style:'display:flex; padding:0; gap:0.3vmin;'} })
+			el({a:'div', b:a, c:'Degrade:' })
+			el({a:'div', b:a, c:'0' })
+		});
+	},
+	drawLine: a=>{
+		const b = {
+			p1: m.nodes[m.lines[a.a].p1].getCenter(),
+			p2: m.nodes[m.lines[a.a].p2].getCenter(),
+			p3: m.lines[a.a].p3,
+			p4: m.lines[a.a].p4,
+		}
+		
+		const xy=[]
+		if (b.p3) {
+			b.p5 = {lat:(b.p3.lat+b.p4.lat)/2, lng:(b.p3.lng+b.p4.lng)/2}
+			for(var t=0.0; t<1; t+=0.1) xy.push([(1-t)*(1-t)*b.p1.lat + 2*(1-t)*t*b.p3.lat + t*t*b.p5.lat, (1-t)*(1-t)*b.p1.lng + 2*(1-t)*t*b.p3.lng + t*t*b.p5.lng])
+			for(var t=0.9; t>=0; t-=0.1) xy.push([(1-t)*(1-t)*b.p2.lat + 2*(1-t)*t*b.p4.lat + t*t*b.p5.lat, (1-t)*(1-t)*b.p2.lng + 2*(1-t)*t*b.p4.lng + t*t*b.p5.lng])
+		} else {
+			b.p5 = {lat:(b.p1.lat+b.p2.lat)/2, lng:(b.p1.lng+b.p2.lng)/2}
+			for(var t=0.0; t<=1; t+=0.05) xy.push([(1-t)*(1-t)*b.p1.lat + 2*(1-t)*t*b.p5.lat + t*t*b.p2.lat, (1-t)*(1-t)*b.p1.lng + 2*(1-t)*t*b.p5.lng + t*t*b.p2.lng])
+			xy.push([b.p2.lat, b.p2.lng])
+			m.lines[a.a].p3 = {lat:xy[6][0], lng:xy[6][1]}
+			m.lines[a.a].p4 = {lat:xy[14][0], lng:xy[14][1]}
+		}
+		
+		if (m.lines[a.a].l1) {
+			m.lines[a.a].l1.setLatLngs(xy)
+			m.lines[a.a].l2.setLatLngs(xy)
+		} else {
+			m.lines[a.a].l1 = L.polyline(xy, {className:'line-1', fill:false, idx:a.a}).on('click', a=> {
+				L.DomEvent.stopPropagation(a)
+				a = a.target.options.idx
+				m.cp[0].options.idx = a
+				m.cp[0].setLatLng(m.lines[a].p3).addTo(m.map)
+				m.cp[1].options.idx = a
+				m.cp[1].setLatLng(m.lines[a].p4).addTo(m.map)
+				m.lines[a].l1.bringToFront()
+				m.lines[a].l2.bringToFront()
+			}).on('mouseover', a=> { m.showPopup1({a:a.target.options.idx, x:a.containerPoint.x, y:a.containerPoint.y, })
+			}).on('mouseout', a=> { m.popup.remove() })
+			m.lines[a.a].l2 = L.polyline(xy, {className:'line-2', fill:false, idx:a.a, interactive:false })
+		}
+		
+		if (a.b) {
+			m.lines[a.a].l1.addTo(a.b)
+			m.lines[a.a].l2.addTo(a.b)
+		}
+	},
+	namaBulan: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+	region: ['', 'SUMBAGUT', 'SUMBAGSEL', 'JABO', 'JABAR', 'JATENG', 'JATIM', 'BALNUS', 'KALIMANTAN', 'SULAWESI', 'SUMBAGTENG', 'PUMA', 'JABO'],
+	regionIndex: {SUMBAGUT: 0, SUMBAGTENG: 1, SUMBAGSEL:2, JABO:3, JABAR: 4, JATENG: 5, JATIM: 6, BALNUS: 7, KALIMANTAN: 8, SULAWESI: 9, PUMA: 10},
+	screenSize: {height:screen.availHeight/2, width:screen.availWidth/2},
+	showPopup1: a => {
+		m.popup.innerHTML = ''
+		el({a:'div', b:m.popup, c:`${({ebr:'EBR - IGW ', pe:'PE TRANSIT - IGW'})[m.tipe]} ${m.lines[a.a].p1}`, d:{style:'font-weight:bold; grid-column:1/5; text-align:center; padding:0.5vmin;'} })
+		m.lines[a.a].data.filter(a=>a.tipe==m.tipe).forEach(a=>{
+			const degrade = parseFloat(a.latency) > parseFloat(a.baseline)
+			el({a:'div', b:m.popup, d:{style:`background:rgba${degrade?'(200,0,0,0.7)':'(0,200,0,0.7)'}; border-radius:50%; width:1vmin; height:1vmin;`}  })
+			el({a:'div', b:m.popup, c:a.transit })
+			el({a:'div', b:m.popup, c:a.baseline })
+			el({a:'div', b:m.popup, c:a.latency })
+		})
+		document.body.appendChild(m.popup)
+		m.popup.style.left = (m.screenSize.x + a.x) + 'px'
+		m.popup.style.top = (m.screenSize.y + a.y) + 'px'
+	},
+	tipe: 'ebr',
+}
+m.init(document.body)
+})
+</script>
+</head><body></body></html>
